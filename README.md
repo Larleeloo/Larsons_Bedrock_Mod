@@ -63,7 +63,7 @@ The packs are cross-dependencies of each other via the `dependencies` array so M
    `%localappdata%\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\development_behavior_packs\Larsons_Bedrock_Mod_BP\`
 2. Copy `resource_pack/` into
    `...\development_resource_packs\Larsons_Bedrock_Mod_RP\`
-3. Launch Minecraft Bedrock (1.21+), create/edit a world, and enable both packs.
+3. Launch Minecraft Bedrock (v26.13 or newer), create/edit a world, and enable both packs.
 4. In Creative, search for **Larson's Glow Block** under *Construction*.
 
 Alternatively, zip each folder, rename the extensions to `.mcpack`, and open them with Minecraft to import.
@@ -71,6 +71,6 @@ Alternatively, zip each folder, rename the extensions to `.mcpack`, and open the
 ## Engine / Format Versions
 
 - Pack manifest `format_version`: `2`
-- Minimum engine version: `1.21.0`
-- Block `format_version`: `1.21.40`
+- Minimum engine version: `26.13.0` (Minecraft Bedrock v26.13)
+- Block `format_version`: `26.13.0`
 - `blocks.json` version: `[1, 1, 0]`

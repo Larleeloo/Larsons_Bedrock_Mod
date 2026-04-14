@@ -5,7 +5,7 @@
     "name": "Larson's Bedrock Mod BP",
     "uuid": "64f33380-afbf-425b-ba04-0271539fb1ed",
     "version": [1, 0, 0],
-    "min_engine_version": [1, 21, 0]
+    "min_engine_version": [26, 13, 0]
   },
   "modules": [
     {

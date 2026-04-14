@@ -5,7 +5,7 @@
     "name": "Larson's Bedrock Mod RP",
     "uuid": "e586356a-4918-485c-97a5-b2797b216ecb",
     "version": [1, 0, 0],
-    "min_engine_version": [1, 21, 0]
+    "min_engine_version": [26, 13, 0]
   },
   "modules": [
     {
