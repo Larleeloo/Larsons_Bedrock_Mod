@@ -1,0 +1,7 @@
+{
+  "format_version": [1, 1, 0],
+  "lars:glow_block": {
+    "sound": "stone",
+    "textures": "lars_glow_block"
+  }
+}
