@@ -69,6 +69,27 @@
     },
     "neon_oak_planks_gray": {
       "textures": "textures/blocks/neon_oak_planks_gray"
+    },
+    "neon_oak_log_red_top": {
+      "textures": "textures/blocks/neon_oak_log_red_top"
+    },
+    "neon_oak_log_green_top": {
+      "textures": "textures/blocks/neon_oak_log_green_top"
+    },
+    "neon_oak_log_blue_top": {
+      "textures": "textures/blocks/neon_oak_log_blue_top"
+    },
+    "neon_oak_log_yellow_top": {
+      "textures": "textures/blocks/neon_oak_log_yellow_top"
+    },
+    "neon_oak_log_magenta_top": {
+      "textures": "textures/blocks/neon_oak_log_magenta_top"
+    },
+    "neon_oak_log_cyan_top": {
+      "textures": "textures/blocks/neon_oak_log_cyan_top"
+    },
+    "neon_oak_log_gray_top": {
+      "textures": "textures/blocks/neon_oak_log_gray_top"
     }
   }
 }

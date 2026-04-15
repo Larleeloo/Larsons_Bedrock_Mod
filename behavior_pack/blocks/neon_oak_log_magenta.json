@@ -25,7 +25,15 @@
           "render_method": "opaque",
           "face_dimming": false,
           "ambient_occlusion": false
-        }
+        },
+        "end": {
+          "texture": "neon_oak_log_magenta_top",
+          "render_method": "opaque",
+          "face_dimming": false,
+          "ambient_occlusion": false
+        },
+        "up": "end",
+        "down": "end"
       }
     }
   }

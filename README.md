@@ -54,17 +54,19 @@ Where `<color>` ∈ `{red, green, blue, yellow, magenta, cyan, gray}`.
 
 Drop each 16×16 PNG into `resource_pack/textures/blocks/` using these **exact filenames**:
 
+**Leaves (7) + Planks (7) + Log sides (7) + Log tops (7) = 28 PNGs total**
+
 ```
-neon_oak_leaves_red.png        neon_oak_log_red.png        neon_oak_planks_red.png
-neon_oak_leaves_green.png      neon_oak_log_green.png      neon_oak_planks_green.png
-neon_oak_leaves_blue.png       neon_oak_log_blue.png       neon_oak_planks_blue.png
-neon_oak_leaves_yellow.png     neon_oak_log_yellow.png     neon_oak_planks_yellow.png
-neon_oak_leaves_magenta.png    neon_oak_log_magenta.png    neon_oak_planks_magenta.png
-neon_oak_leaves_cyan.png       neon_oak_log_cyan.png       neon_oak_planks_cyan.png
-neon_oak_leaves_gray.png       neon_oak_log_gray.png       neon_oak_planks_gray.png
+neon_oak_leaves_red.png        neon_oak_log_red.png        neon_oak_log_red_top.png        neon_oak_planks_red.png
+neon_oak_leaves_green.png      neon_oak_log_green.png      neon_oak_log_green_top.png      neon_oak_planks_green.png
+neon_oak_leaves_blue.png       neon_oak_log_blue.png       neon_oak_log_blue_top.png       neon_oak_planks_blue.png
+neon_oak_leaves_yellow.png     neon_oak_log_yellow.png     neon_oak_log_yellow_top.png     neon_oak_planks_yellow.png
+neon_oak_leaves_magenta.png    neon_oak_log_magenta.png    neon_oak_log_magenta_top.png    neon_oak_planks_magenta.png
+neon_oak_leaves_cyan.png       neon_oak_log_cyan.png       neon_oak_log_cyan_top.png       neon_oak_planks_cyan.png
+neon_oak_leaves_gray.png       neon_oak_log_gray.png       neon_oak_log_gray_top.png       neon_oak_planks_gray.png
 ```
 
-All filenames are lowercase. The log blocks use a single texture on all six faces — if you want distinct end-grain tops, let me know and I'll add the per-face `material_instances` overrides.
+All filenames are lowercase. Log blocks use `_top` for the end-grain on the top and bottom faces; the four side faces use the base `neon_oak_log_<color>.png`.
 
 ## Unique UUIDs
 
@@ -81,8 +83,8 @@ The packs are cross-dependencies of each other via the `dependencies` array so M
 
 1. Copy `behavior_pack/` and `resource_pack/` into (standalone launcher Bedrock):
    ```
-   %appdata%\Minecraft Bedrock\…\com.mojang\behavior_packs\Larsons_Glow_Block_BP_v1_0_2\
-   %appdata%\Minecraft Bedrock\…\com.mojang\resource_packs\Larsons_Glow_Block_RP_v1_0_2\
+   %appdata%\Minecraft Bedrock\…\com.mojang\behavior_packs\Larsons_Glow_Block_BP_v1_0_3\
+   %appdata%\Minecraft Bedrock\…\com.mojang\resource_packs\Larsons_Glow_Block_RP_v1_0_3\
    ```
    (Use `development_behavior_packs` / `development_resource_packs` on UWP Store builds.)
 2. Launch Minecraft Bedrock, create a Creative world, activate both packs.
@@ -93,7 +95,7 @@ Alternatively, zip the two pack folders together (both at the archive root, no w
 ## Engine / Format Versions
 
 - Pack manifest `format_version`: `2`
-- Pack version: `1.0.2`
+- Pack version: `1.0.3`
 - Minimum engine version: `1.21.0` (Minecraft Bedrock 1.21+ / v26.13 launcher build)
 - Block `format_version`: `1.20.60`
 - `blocks.json` version: `[1, 1, 0]`
