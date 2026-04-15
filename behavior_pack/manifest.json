@@ -1,13 +1,13 @@
 {
   "format_version": 2,
   "header": {
-    "description": "Larson's Glow Block v1.0.3 - Behavior Pack. 22 glowing blocks with log end-grain tops.",
-    "name": "Larson's Glow Block BP v1.0.3",
+    "description": "Larson's Glow Block v1.0.4 - Behavior Pack. 22 glowing blocks with log end-grain tops.",
+    "name": "Larson's Glow Block BP v1.0.4",
     "uuid": "64f33380-afbf-425b-ba04-0271539fb1ed",
     "version": [
       1,
       0,
-      3
+      4
     ],
     "min_engine_version": [
       1,
@@ -23,7 +23,7 @@
       "version": [
         1,
         0,
-        3
+        4
       ]
     }
   ],
@@ -33,7 +33,7 @@
       "version": [
         1,
         0,
-        3
+        4
       ]
     }
   ]

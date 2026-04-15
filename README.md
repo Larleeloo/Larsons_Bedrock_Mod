@@ -83,8 +83,8 @@ The packs are cross-dependencies of each other via the `dependencies` array so M
 
 1. Copy `behavior_pack/` and `resource_pack/` into (standalone launcher Bedrock):
    ```
-   %appdata%\Minecraft Bedrock\…\com.mojang\behavior_packs\Larsons_Glow_Block_BP_v1_0_3\
-   %appdata%\Minecraft Bedrock\…\com.mojang\resource_packs\Larsons_Glow_Block_RP_v1_0_3\
+   %appdata%\Minecraft Bedrock\…\com.mojang\behavior_packs\Larsons_Glow_Block_BP_v1_0_4\
+   %appdata%\Minecraft Bedrock\…\com.mojang\resource_packs\Larsons_Glow_Block_RP_v1_0_4\
    ```
    (Use `development_behavior_packs` / `development_resource_packs` on UWP Store builds.)
 2. Launch Minecraft Bedrock, create a Creative world, activate both packs.
@@ -95,7 +95,7 @@ Alternatively, zip the two pack folders together (both at the archive root, no w
 ## Engine / Format Versions
 
 - Pack manifest `format_version`: `2`
-- Pack version: `1.0.3`
+- Pack version: `1.0.4`
 - Minimum engine version: `1.21.0` (Minecraft Bedrock 1.21+ / v26.13 launcher build)
 - Block `format_version`: `1.20.60`
 - `blocks.json` version: `[1, 1, 0]`
