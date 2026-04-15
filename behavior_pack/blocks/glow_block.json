@@ -1,13 +1,11 @@
 {
-  "format_version": "1.21.40",
+  "format_version": "1.20.60",
   "minecraft:block": {
     "description": {
       "identifier": "lars:glow_block",
       "menu_category": {
-        "category": "construction",
-        "group": "minecraft:itemGroup.name.concrete"
-      },
-      "traits": {}
+        "category": "construction"
+      }
     },
     "components": {
       "minecraft:light_emission": 15,
