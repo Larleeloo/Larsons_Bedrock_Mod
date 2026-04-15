@@ -1,24 +1,40 @@
 {
   "format_version": 2,
   "header": {
-    "description": "Larson's Glow Block v1.0.1 - Behavior Pack.",
-    "name": "Larson's Glow Block BP v1.0.1",
+    "description": "Larson's Glow Block v1.0.2 - Behavior Pack. Adds 22 glowing blocks.",
+    "name": "Larson's Glow Block BP v1.0.2",
     "uuid": "64f33380-afbf-425b-ba04-0271539fb1ed",
-    "version": [1, 0, 1],
-    "min_engine_version": [1, 21, 0]
+    "version": [
+      1,
+      0,
+      2
+    ],
+    "min_engine_version": [
+      1,
+      21,
+      0
+    ]
   },
   "modules": [
     {
       "description": "Behavior data for Larson's custom glow block.",
       "type": "data",
       "uuid": "11e7b9be-09de-4317-93c3-d9511af171da",
-      "version": [1, 0, 1]
+      "version": [
+        1,
+        0,
+        2
+      ]
     }
   ],
   "dependencies": [
     {
       "uuid": "e586356a-4918-485c-97a5-b2797b216ecb",
-      "version": [1, 0, 1]
+      "version": [
+        1,
+        0,
+        2
+      ]
     }
   ]
 }

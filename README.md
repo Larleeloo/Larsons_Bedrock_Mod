@@ -1,6 +1,6 @@
 # Larson's Bedrock Mod
 
-A Minecraft Bedrock Edition add-on that introduces **Larson's Glow Block** — a custom, fully-textured block that emits maximum-level light.
+A Minecraft Bedrock Edition add-on that introduces **22 custom, fully-textured glowing blocks** — Larson's Glow Block plus 21 "neon" variants of oak leaves, log, and planks in seven colors (red, green, blue, yellow, magenta, cyan, gray).
 
 Built following the official Microsoft / Mojang creator documentation and sample packs:
 
@@ -17,7 +17,10 @@ Larsons_Bedrock_Mod/
 │   ├── manifest.json
 │   ├── pack_icon.png
 │   └── blocks/
-│       └── glow_block.json
+│       ├── glow_block.json
+│       ├── neon_oak_leaves_{red,green,blue,yellow,magenta,cyan,gray}.json
+│       ├── neon_oak_log_{…}.json
+│       └── neon_oak_planks_{…}.json
 └── resource_pack/
     ├── manifest.json
     ├── pack_icon.png
@@ -25,26 +28,43 @@ Larsons_Bedrock_Mod/
     ├── textures/
     │   ├── terrain_texture.json
     │   └── blocks/
-    │       └── lars_glow_block.png
+    │       ├── lars_glow_block.png
+    │       ├── neon_oak_leaves_{red,green,blue,yellow,magenta,cyan,gray}.png  ← add your PNGs here
+    │       ├── neon_oak_log_{…}.png
+    │       └── neon_oak_planks_{…}.png
     └── texts/
         ├── languages.json
         └── en_US.lang
 ```
 
-## The Block
+## Blocks
 
-| Property | Value |
-| --- | --- |
-| Identifier | `lars:glow_block` |
-| Display name | Larson's Glow Block |
-| Light emission | 15 (max) |
-| Light dampening | 0 |
-| Creative category | Construction |
-| Texture | Fully custom 16×16 PNG (`lars_glow_block.png`) |
-| Mining time | 1.5 s |
-| Explosion resistance | 3 |
+All 22 blocks emit full light (level 15) and have `face_dimming: false` so every face shows at full brightness.
 
-The block uses the `minecraft:light_emission` component for glow, `minecraft:material_instances` to bind the custom texture with `face_dimming: false` so the block appears bright from every angle, and is registered in `blocks.json` / `terrain_texture.json` following the standard Bedrock texture pipeline.
+| Identifier | Display name | Category | Render | Mining time |
+| --- | --- | --- | --- | --- |
+| `lars:glow_block` | Larson's Glow Block | Construction | opaque | 1.5 s |
+| `lars:neon_oak_leaves_<color>` | Neon Oak Leaves (Color) | Nature | alpha_test | 0.2 s |
+| `lars:neon_oak_log_<color>` | Neon Oak Log (Color) | Nature | opaque | 2.0 s |
+| `lars:neon_oak_planks_<color>` | Neon Oak Planks (Color) | Construction | opaque | 2.0 s |
+
+Where `<color>` ∈ `{red, green, blue, yellow, magenta, cyan, gray}`.
+
+## Where to put your PNG textures
+
+Drop each 16×16 PNG into `resource_pack/textures/blocks/` using these **exact filenames**:
+
+```
+neon_oak_leaves_red.png        neon_oak_log_red.png        neon_oak_planks_red.png
+neon_oak_leaves_green.png      neon_oak_log_green.png      neon_oak_planks_green.png
+neon_oak_leaves_blue.png       neon_oak_log_blue.png       neon_oak_planks_blue.png
+neon_oak_leaves_yellow.png     neon_oak_log_yellow.png     neon_oak_planks_yellow.png
+neon_oak_leaves_magenta.png    neon_oak_log_magenta.png    neon_oak_planks_magenta.png
+neon_oak_leaves_cyan.png       neon_oak_log_cyan.png       neon_oak_planks_cyan.png
+neon_oak_leaves_gray.png       neon_oak_log_gray.png       neon_oak_planks_gray.png
+```
+
+All filenames are lowercase. The log blocks use a single texture on all six faces — if you want distinct end-grain tops, let me know and I'll add the per-face `material_instances` overrides.
 
 ## Unique UUIDs
 
@@ -59,18 +79,21 @@ The packs are cross-dependencies of each other via the `dependencies` array so M
 
 ## Installation
 
-1. Copy `behavior_pack/` into
-   `%localappdata%\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\development_behavior_packs\Larsons_Bedrock_Mod_BP\`
-2. Copy `resource_pack/` into
-   `...\development_resource_packs\Larsons_Bedrock_Mod_RP\`
-3. Launch Minecraft Bedrock (v26.13 or newer), create/edit a world, and enable both packs.
-4. In Creative, search for **Larson's Glow Block** under *Construction*.
+1. Copy `behavior_pack/` and `resource_pack/` into (standalone launcher Bedrock):
+   ```
+   %appdata%\Minecraft Bedrock\…\com.mojang\behavior_packs\Larsons_Glow_Block_BP_v1_0_2\
+   %appdata%\Minecraft Bedrock\…\com.mojang\resource_packs\Larsons_Glow_Block_RP_v1_0_2\
+   ```
+   (Use `development_behavior_packs` / `development_resource_packs` on UWP Store builds.)
+2. Launch Minecraft Bedrock, create a Creative world, activate both packs.
+3. In Creative, search **"Neon Oak"** or **"Glow"** to find the blocks under Nature / Construction.
 
-Alternatively, zip each folder, rename the extensions to `.mcpack`, and open them with Minecraft to import.
+Alternatively, zip the two pack folders together (both at the archive root, no wrapper folder), rename to `.mcaddon`, and double-click.
 
 ## Engine / Format Versions
 
 - Pack manifest `format_version`: `2`
+- Pack version: `1.0.2`
 - Minimum engine version: `1.21.0` (Minecraft Bedrock 1.21+ / v26.13 launcher build)
 - Block `format_version`: `1.20.60`
 - `blocks.json` version: `[1, 1, 0]`

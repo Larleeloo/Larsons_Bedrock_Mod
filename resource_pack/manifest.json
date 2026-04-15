@@ -1,24 +1,40 @@
 {
   "format_version": 2,
   "header": {
-    "description": "Larson's Glow Block v1.0.1 - Resource Pack.",
-    "name": "Larson's Glow Block RP v1.0.1",
+    "description": "Larson's Glow Block v1.0.2 - Resource Pack. Textures for 22 glowing blocks.",
+    "name": "Larson's Glow Block RP v1.0.2",
     "uuid": "e586356a-4918-485c-97a5-b2797b216ecb",
-    "version": [1, 0, 1],
-    "min_engine_version": [1, 21, 0]
+    "version": [
+      1,
+      0,
+      2
+    ],
+    "min_engine_version": [
+      1,
+      21,
+      0
+    ]
   },
   "modules": [
     {
       "description": "Resources for Larson's custom glow block.",
       "type": "resources",
       "uuid": "49b02d97-c865-407e-ad97-c3cdb48dbb3e",
-      "version": [1, 0, 1]
+      "version": [
+        1,
+        0,
+        2
+      ]
     }
   ],
   "dependencies": [
     {
       "uuid": "64f33380-afbf-425b-ba04-0271539fb1ed",
-      "version": [1, 0, 1]
+      "version": [
+        1,
+        0,
+        2
+      ]
     }
   ]
 }

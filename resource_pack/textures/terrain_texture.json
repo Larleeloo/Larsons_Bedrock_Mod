@@ -6,6 +6,69 @@
   "texture_data": {
     "lars_glow_block": {
       "textures": "textures/blocks/lars_glow_block"
+    },
+    "neon_oak_leaves_red": {
+      "textures": "textures/blocks/neon_oak_leaves_red"
+    },
+    "neon_oak_leaves_green": {
+      "textures": "textures/blocks/neon_oak_leaves_green"
+    },
+    "neon_oak_leaves_blue": {
+      "textures": "textures/blocks/neon_oak_leaves_blue"
+    },
+    "neon_oak_leaves_yellow": {
+      "textures": "textures/blocks/neon_oak_leaves_yellow"
+    },
+    "neon_oak_leaves_magenta": {
+      "textures": "textures/blocks/neon_oak_leaves_magenta"
+    },
+    "neon_oak_leaves_cyan": {
+      "textures": "textures/blocks/neon_oak_leaves_cyan"
+    },
+    "neon_oak_leaves_gray": {
+      "textures": "textures/blocks/neon_oak_leaves_gray"
+    },
+    "neon_oak_log_red": {
+      "textures": "textures/blocks/neon_oak_log_red"
+    },
+    "neon_oak_log_green": {
+      "textures": "textures/blocks/neon_oak_log_green"
+    },
+    "neon_oak_log_blue": {
+      "textures": "textures/blocks/neon_oak_log_blue"
+    },
+    "neon_oak_log_yellow": {
+      "textures": "textures/blocks/neon_oak_log_yellow"
+    },
+    "neon_oak_log_magenta": {
+      "textures": "textures/blocks/neon_oak_log_magenta"
+    },
+    "neon_oak_log_cyan": {
+      "textures": "textures/blocks/neon_oak_log_cyan"
+    },
+    "neon_oak_log_gray": {
+      "textures": "textures/blocks/neon_oak_log_gray"
+    },
+    "neon_oak_planks_red": {
+      "textures": "textures/blocks/neon_oak_planks_red"
+    },
+    "neon_oak_planks_green": {
+      "textures": "textures/blocks/neon_oak_planks_green"
+    },
+    "neon_oak_planks_blue": {
+      "textures": "textures/blocks/neon_oak_planks_blue"
+    },
+    "neon_oak_planks_yellow": {
+      "textures": "textures/blocks/neon_oak_planks_yellow"
+    },
+    "neon_oak_planks_magenta": {
+      "textures": "textures/blocks/neon_oak_planks_magenta"
+    },
+    "neon_oak_planks_cyan": {
+      "textures": "textures/blocks/neon_oak_planks_cyan"
+    },
+    "neon_oak_planks_gray": {
+      "textures": "textures/blocks/neon_oak_planks_gray"
     }
   }
 }
