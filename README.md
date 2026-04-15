@@ -71,6 +71,6 @@ Alternatively, zip each folder, rename the extensions to `.mcpack`, and open the
 ## Engine / Format Versions
 
 - Pack manifest `format_version`: `2`
-- Minimum engine version: `26.13.0` (Minecraft Bedrock v26.13)
-- Block `format_version`: `26.13.0`
+- Minimum engine version: `1.21.0` (Minecraft Bedrock 1.21+ / v26.13 launcher build)
+- Block `format_version`: `1.21.40`
 - `blocks.json` version: `[1, 1, 0]`
