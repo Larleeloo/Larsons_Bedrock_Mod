@@ -50,6 +50,10 @@ All 22 blocks emit full light (level 15) and have `face_dimming: false` so every
 
 Where `<color>` ∈ `{red, green, blue, yellow, magenta, cyan, gray}`.
 
+**Flammability** (matching vanilla oak values): leaves `catch 30 / destroy 60`, logs `catch 5 / destroy 5`, planks `catch 5 / destroy 20`.
+
+**Directional log placement:** logs use the `minecraft:placement_position` trait with permutations that rotate the block based on the clicked face — place on a side for horizontal orientation, on top/bottom for vertical.
+
 ## Where to put your PNG textures
 
 Drop each 16×16 PNG into `resource_pack/textures/blocks/` using these **exact filenames**:
@@ -83,8 +87,8 @@ The packs are cross-dependencies of each other via the `dependencies` array so M
 
 1. Copy `behavior_pack/` and `resource_pack/` into (standalone launcher Bedrock):
    ```
-   %appdata%\Minecraft Bedrock\…\com.mojang\behavior_packs\Larsons_Glow_Block_BP_v1_0_4\
-   %appdata%\Minecraft Bedrock\…\com.mojang\resource_packs\Larsons_Glow_Block_RP_v1_0_4\
+   %appdata%\Minecraft Bedrock\…\com.mojang\behavior_packs\Larsons_Glow_Block_BP_v1_0_5\
+   %appdata%\Minecraft Bedrock\…\com.mojang\resource_packs\Larsons_Glow_Block_RP_v1_0_5\
    ```
    (Use `development_behavior_packs` / `development_resource_packs` on UWP Store builds.)
 2. Launch Minecraft Bedrock, create a Creative world, activate both packs.
@@ -95,7 +99,7 @@ Alternatively, zip the two pack folders together (both at the archive root, no w
 ## Engine / Format Versions
 
 - Pack manifest `format_version`: `2`
-- Pack version: `1.0.4`
+- Pack version: `1.0.5`
 - Minimum engine version: `1.21.0` (Minecraft Bedrock 1.21+ / v26.13 launcher build)
 - Block `format_version`: `1.20.60`
 - `blocks.json` version: `[1, 1, 0]`
