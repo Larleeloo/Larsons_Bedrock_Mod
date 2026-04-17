@@ -112,35 +112,41 @@ official [jigsaw sample](https://github.com/microsoft/minecraft-samples/tree/mai
 ```
 behavior_pack/
 ├── structures/
-│   └── lars/
-│       └── test_structure.mcstructure    ← drop your file here
+│   └── runic_tunnels/
+│       ├── runic_tunnel_short_basic.mcstructure
+│       ├── runic_tunnel_med_basic.mcstructure
+│       ├── runic_tunnel_long_basic.mcstructure
+│       ├── runic_4tunnel_short_basic.mcstructure
+│       ├── runic_ttunnel_short_basic.mcstructure
+│       ├── runic_stair_short_basic.mcstructure
+│       └── runic_stair_med_basic.mcstructure
 └── worldgen/
     ├── structures/
     │   └── test_dungeon.json             ← minecraft:jigsaw
     ├── structure_sets/
     │   └── test_dungeon.json             ← minecraft:structure_set (placement)
     └── template_pools/
-        └── test.json                     ← lars:test pool referencing the mcstructure
+        └── runic_tunnels.json            ← lars:runic_tunnels pool, all 7 tunnel variants
 ```
 
 ### Expected structure format
 
-- Single structure `test_structure.mcstructure` with 6 jigsaw blocks.
-- All jigsaws use pool `lars:test` (so pieces chain to copies of themselves).
-- Side jigsaws named `walkside` (target `walkside`).
-- Top jigsaw `walkup` → target `walkdown`.
-- Bottom jigsaw `walkdown` → target `walkup`.
-
-The jigsaw structure's `start_pool` is `lars:test` — the same pool the jigsaw
-blocks point to — so the root piece and every expanded piece come from the
-same pool. `max_depth: 7` caps how far the chain can extend.
+- All 7 connector structures sit in the `lars:runic_tunnels` pool with the
+  weights defined in `template_pools/runic_tunnels.json` (short tunnels are
+  most common, long/branch/stairs progressively rarer).
+- Every jigsaw in every piece uses name `walkside`, target `walkside`, and
+  target pool `lars:runic_tunnels` — so any end can connect to any other end.
 
 ### Placement
 
 - **Biome filter:** only biomes tagged `lars_dungeon_zone`.
+- **Y range:** 10 – 55 (absolute), uniform. With `heightmap_projection: none`
+  the chosen Y is kept as-is, so the dungeon stays underground (below y=62).
+- **Terrain adaptation:** `bury` — surrounding terrain fills around the
+  structure so you don't get floating stone walls in open air.
+- **Step:** `underground_structures`.
 - **Spacing / separation:** 40 / 12 chunks (random spread grid).
-- **Step:** `surface_structures`.
-- **Start height:** 64 above the bottom of the world.
+- **Max depth:** 10 — the BFS chain can grow up to 10 hops from the root.
 
 ### Rare gate biome (`lars:dungeon_zone`)
 

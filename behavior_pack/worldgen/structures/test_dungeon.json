@@ -10,16 +10,19 @@
         "value": "lars_dungeon_zone"
       }
     ],
-    "step": "surface_structures",
-    "terrain_adaptation": "none",
-    "start_pool": "lars:test",
-    "max_depth": 7,
+    "step": "underground_structures",
+    "terrain_adaptation": "bury",
+    "start_pool": "lars:runic_tunnels",
+    "max_depth": 10,
     "start_height": {
-      "type": "constant",
-      "value": {
-        "above_bottom": 64
+      "type": "uniform",
+      "min_inclusive": {
+        "absolute": 10
+      },
+      "max_inclusive": {
+        "absolute": 55
       }
     },
-    "heightmap_projection": "world_surface"
+    "heightmap_projection": "none"
   }
 }
