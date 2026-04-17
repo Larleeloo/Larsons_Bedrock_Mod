@@ -1,0 +1,46 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:biome": {
+    "description": {
+      "identifier": "lars:neon_rolling_hills"
+    },
+    "components": {
+      "minecraft:climate": {
+        "temperature": 0.45,
+        "downfall": 0.05,
+        "snow_accumulation": [
+          0,
+          0
+        ],
+        "ash": 0,
+        "red_spores": 0,
+        "white_ash": 0
+      },
+      "minecraft:overworld_height": {
+        "noise_type": "taiga_hills"
+      },
+      "minecraft:surface_parameters": {
+        "sea_floor_depth": 7,
+        "sea_floor_material": "minecraft:gravel",
+        "foundation_material": "minecraft:stone",
+        "mid_material": "minecraft:lime_terracotta",
+        "top_material": "minecraft:lime_concrete",
+        "sea_material": "minecraft:water"
+      },
+      "minecraft:overworld_generation_rules": {
+        "generate_for_climates": [
+          [
+            "medium",
+            1
+          ],
+          [
+            "lukewarm",
+            1
+          ]
+        ]
+      },
+      "lars_neon": {},
+      "overworld": {}
+    }
+  }
+}
