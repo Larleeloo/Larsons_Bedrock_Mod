@@ -90,6 +90,18 @@
     },
     "neon_oak_log_gray_top": {
       "textures": "textures/blocks/neon_oak_log_gray_top"
+    },
+    "stone_rune": {
+      "textures": "textures/blocks/stone_rune"
+    },
+    "cracked_stone_rune": {
+      "textures": "textures/blocks/cracked_stone_rune"
+    },
+    "dark_stone_rune": {
+      "textures": "textures/blocks/dark_stone_rune"
+    },
+    "runic_stone_bricks": {
+      "textures": "textures/blocks/runic_stone_bricks"
     }
   }
 }

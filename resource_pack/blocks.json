@@ -69,5 +69,17 @@
   },
   "lars:neon_oak_planks_gray": {
     "sound": "wood"
+  },
+  "lars:stone_rune": {
+    "sound": "stone"
+  },
+  "lars:cracked_stone_rune": {
+    "sound": "stone"
+  },
+  "lars:dark_stone_rune": {
+    "sound": "stone"
+  },
+  "lars:runic_stone_bricks": {
+    "sound": "stone"
   }
 }
