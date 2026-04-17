@@ -20,3 +20,7 @@ tile.lars:neon_oak_planks_yellow.name=Neon Oak Planks (Yellow)
 tile.lars:neon_oak_planks_magenta.name=Neon Oak Planks (Magenta)
 tile.lars:neon_oak_planks_cyan.name=Neon Oak Planks (Cyan)
 tile.lars:neon_oak_planks_gray.name=Neon Oak Planks (Gray)
+tile.lars:stone_rune.name=Stone Rune
+tile.lars:cracked_stone_rune.name=Cracked Stone Rune
+tile.lars:dark_stone_rune.name=Dark Stone Rune
+tile.lars:runic_stone_bricks.name=Runic Stone Bricks

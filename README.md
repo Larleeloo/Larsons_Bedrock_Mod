@@ -47,8 +47,14 @@ All 22 blocks emit full light (level 15) and have `face_dimming: false` so every
 | `lars:neon_oak_leaves_<color>` | Neon Oak Leaves (Color) | Nature | alpha_test | 0.2 s |
 | `lars:neon_oak_log_<color>` | Neon Oak Log (Color) | Nature | opaque | 2.0 s |
 | `lars:neon_oak_planks_<color>` | Neon Oak Planks (Color) | Construction | opaque | 2.0 s |
+| `lars:stone_rune` | Stone Rune | Construction | opaque | 50 s (obsidian-tough) |
+| `lars:cracked_stone_rune` | Cracked Stone Rune | Construction | opaque | 40 s |
+| `lars:dark_stone_rune` | Dark Stone Rune | Construction | opaque | 50 s (obsidian-tough) |
+| `lars:runic_stone_bricks` | Runic Stone Bricks | Construction | opaque | 50 s (obsidian-tough) |
 
-Where `<color>` ∈ `{red, green, blue, yellow, magenta, cyan, gray}`.
+Where `<color>` ∈ `{red, green, blue, yellow, magenta, cyan, gray}`. The four
+rune blocks inherit obsidian-class mining/explosion resistance (the cracked
+variant is slightly softer).
 
 **Flammability** (matching vanilla oak values): leaves `catch 30 / destroy 60`, logs `catch 5 / destroy 5`, planks `catch 5 / destroy 20`.
 

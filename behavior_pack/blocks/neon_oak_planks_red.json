@@ -16,7 +16,6 @@
       "minecraft:destructible_by_explosion": {
         "explosion_resistance": 2.0
       },
-      "minecraft:friction": 0.6,
       "minecraft:map_color": "#FF1040",
       "minecraft:geometry": "minecraft:geometry.full_block",
       "minecraft:material_instances": {
