@@ -1,13 +1,13 @@
 {
   "format_version": 2,
   "header": {
-    "description": "Larson's Glow Block v1.0.7 - Fixed biome registration.",
-    "name": "Larson's Glow Block BP v1.0.7",
+    "description": "Larson's Glow Block v1.0.8 - Minimal biome format.",
+    "name": "Larson's Glow Block BP v1.0.8",
     "uuid": "64f33380-afbf-425b-ba04-0271539fb1ed",
     "version": [
       1,
       0,
-      7
+      8
     ],
     "min_engine_version": [
       1,
@@ -23,7 +23,7 @@
       "version": [
         1,
         0,
-        7
+        8
       ]
     }
   ],
@@ -33,7 +33,7 @@
       "version": [
         1,
         0,
-        7
+        8
       ]
     }
   ]
