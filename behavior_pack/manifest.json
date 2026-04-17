@@ -1,18 +1,18 @@
 {
   "format_version": 2,
   "header": {
-    "description": "Larson's Glow Block v1.0.11 - min_engine_version 1.21.40.",
-    "name": "Larson's Glow Block BP v1.0.11",
+    "description": "Larson's Glow Block v1.0.12 - replace_biomes API.",
+    "name": "Larson's Glow Block BP v1.0.12",
     "uuid": "64f33380-afbf-425b-ba04-0271539fb1ed",
     "version": [
       1,
       0,
-      11
+      12
     ],
     "min_engine_version": [
       1,
       21,
-      40
+      110
     ]
   },
   "modules": [
@@ -23,7 +23,7 @@
       "version": [
         1,
         0,
-        11
+        12
       ]
     }
   ],
@@ -33,7 +33,7 @@
       "version": [
         1,
         0,
-        11
+        12
       ]
     }
   ]
