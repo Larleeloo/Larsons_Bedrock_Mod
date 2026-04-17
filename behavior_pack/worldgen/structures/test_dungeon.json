@@ -12,8 +12,8 @@
     ],
     "step": "surface_structures",
     "terrain_adaptation": "none",
-    "start_pool": "lars:test_dungeon_start",
-    "max_depth": 1,
+    "start_pool": "lars:test",
+    "max_depth": 7,
     "start_height": {
       "type": "constant",
       "value": {

@@ -114,19 +114,20 @@ behavior_pack/
     ├── structure_sets/
     │   └── test_dungeon.json             ← minecraft:structure_set (placement)
     └── template_pools/
-        └── test_dungeon_start.json       ← start pool referencing the mcstructure
+        └── test.json                     ← lars:test pool referencing the mcstructure
 ```
 
 ### Expected structure format
 
 - Single structure `test_structure.mcstructure` with 6 jigsaw blocks.
-- All jigsaws use pool `minecraft:empty` (so the structure does not expand).
+- All jigsaws use pool `lars:test` (so pieces chain to copies of themselves).
 - Side jigsaws named `walkside` (target `walkside`).
 - Top jigsaw `walkup` → target `walkdown`.
 - Bottom jigsaw `walkdown` → target `walkup`.
 
-Because every jigsaw is in `minecraft:empty`, the dungeon is a single-piece
-placement. `max_depth` is set to `1` in `test_dungeon.json`.
+The jigsaw structure's `start_pool` is `lars:test` — the same pool the jigsaw
+blocks point to — so the root piece and every expanded piece come from the
+same pool. `max_depth: 7` caps how far the chain can extend.
 
 ### Placement
 
