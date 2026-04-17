@@ -12,7 +12,7 @@
     "min_engine_version": [
       1,
       21,
-      110
+      120
     ]
   },
   "modules": [
@@ -36,5 +36,8 @@
         17
       ]
     }
+  ],
+  "capabilities": [
+    "pbr"
   ]
 }
