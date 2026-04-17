@@ -17,7 +17,7 @@
         "replacements": [
           {
             "dimension": "minecraft:overworld",
-            "targets": ["minecraft:snowy_plains"],
+            "targets": ["minecraft:ice_plains"],
             "amount": 0.3,
             "noise_frequency_scale": 25
           }
