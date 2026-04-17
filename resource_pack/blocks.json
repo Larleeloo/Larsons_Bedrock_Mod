@@ -5,91 +5,69 @@
     0
   ],
   "lars:glow_block": {
-    "sound": "stone",
-    "textures": "lars_glow_block"
+    "sound": "stone"
   },
   "lars:neon_oak_leaves_red": {
-    "sound": "grass",
-    "textures": "neon_oak_leaves_red"
+    "sound": "grass"
   },
   "lars:neon_oak_leaves_green": {
-    "sound": "grass",
-    "textures": "neon_oak_leaves_green"
+    "sound": "grass"
   },
   "lars:neon_oak_leaves_blue": {
-    "sound": "grass",
-    "textures": "neon_oak_leaves_blue"
+    "sound": "grass"
   },
   "lars:neon_oak_leaves_yellow": {
-    "sound": "grass",
-    "textures": "neon_oak_leaves_yellow"
+    "sound": "grass"
   },
   "lars:neon_oak_leaves_magenta": {
-    "sound": "grass",
-    "textures": "neon_oak_leaves_magenta"
+    "sound": "grass"
   },
   "lars:neon_oak_leaves_cyan": {
-    "sound": "grass",
-    "textures": "neon_oak_leaves_cyan"
+    "sound": "grass"
   },
   "lars:neon_oak_leaves_gray": {
-    "sound": "grass",
-    "textures": "neon_oak_leaves_gray"
+    "sound": "grass"
   },
   "lars:neon_oak_log_red": {
-    "sound": "wood",
-    "textures": "neon_oak_log_red"
+    "sound": "wood"
   },
   "lars:neon_oak_log_green": {
-    "sound": "wood",
-    "textures": "neon_oak_log_green"
+    "sound": "wood"
   },
   "lars:neon_oak_log_blue": {
-    "sound": "wood",
-    "textures": "neon_oak_log_blue"
+    "sound": "wood"
   },
   "lars:neon_oak_log_yellow": {
-    "sound": "wood",
-    "textures": "neon_oak_log_yellow"
+    "sound": "wood"
   },
   "lars:neon_oak_log_magenta": {
-    "sound": "wood",
-    "textures": "neon_oak_log_magenta"
+    "sound": "wood"
   },
   "lars:neon_oak_log_cyan": {
-    "sound": "wood",
-    "textures": "neon_oak_log_cyan"
+    "sound": "wood"
   },
   "lars:neon_oak_log_gray": {
-    "sound": "wood",
-    "textures": "neon_oak_log_gray"
+    "sound": "wood"
   },
   "lars:neon_oak_planks_red": {
-    "sound": "wood",
-    "textures": "neon_oak_planks_red"
+    "sound": "wood"
   },
   "lars:neon_oak_planks_green": {
-    "sound": "wood",
-    "textures": "neon_oak_planks_green"
+    "sound": "wood"
   },
   "lars:neon_oak_planks_blue": {
-    "sound": "wood",
-    "textures": "neon_oak_planks_blue"
+    "sound": "wood"
   },
   "lars:neon_oak_planks_yellow": {
-    "sound": "wood",
-    "textures": "neon_oak_planks_yellow"
+    "sound": "wood"
   },
   "lars:neon_oak_planks_magenta": {
-    "sound": "wood",
-    "textures": "neon_oak_planks_magenta"
+    "sound": "wood"
   },
   "lars:neon_oak_planks_cyan": {
-    "sound": "wood",
-    "textures": "neon_oak_planks_cyan"
+    "sound": "wood"
   },
   "lars:neon_oak_planks_gray": {
-    "sound": "wood",
-    "textures": "neon_oak_planks_gray"
+    "sound": "wood"
   }
 }

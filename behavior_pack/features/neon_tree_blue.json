@@ -5,7 +5,6 @@
       "identifier": "lars:neon_tree_blue"
     },
     "trunk": {
-      "trunk_type": "default",
       "trunk_block": {
         "name": "lars:neon_oak_log_blue"
       },
@@ -16,7 +15,6 @@
       "can_be_submerged": false
     },
     "canopy": {
-      "canopy_type": "default",
       "leaf_block": {
         "name": "lars:neon_oak_leaves_blue"
       },
