@@ -1,18 +1,18 @@
 {
   "format_version": 2,
   "header": {
-    "description": "Larson's Glow Block v1.0.15 - Resource Pack.",
-    "name": "Larson's Glow Block RP v1.0.15",
+    "description": "Larson's Glow Block v1.0.16 - Resource Pack.",
+    "name": "Larson's Glow Block RP v1.0.16",
     "uuid": "e586356a-4918-485c-97a5-b2797b216ecb",
     "version": [
       1,
       0,
-      15
+      16
     ],
     "min_engine_version": [
       1,
-      21,
-      110
+      26,
+      10
     ]
   },
   "modules": [
@@ -23,7 +23,7 @@
       "version": [
         1,
         0,
-        15
+        16
       ]
     }
   ],
@@ -33,7 +33,7 @@
       "version": [
         1,
         0,
-        15
+        16
       ]
     }
   ]
