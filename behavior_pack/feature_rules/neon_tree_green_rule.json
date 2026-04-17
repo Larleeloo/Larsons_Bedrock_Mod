@@ -1,5 +1,5 @@
 {
-  "format_version": "1.13.0",
+  "format_version": "1.21.40",
   "minecraft:feature_rules": {
     "description": {
       "identifier": "lars:neon_tree_green_rule",
@@ -27,7 +27,7 @@
           15
         ]
       },
-      "y": "q.heightmap(v.worldx, v.worldz)",
+      "y": "query.heightmap(variable.worldx, variable.worldz)",
       "z": {
         "distribution": "uniform",
         "extent": [

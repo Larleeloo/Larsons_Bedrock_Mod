@@ -21,9 +21,11 @@
         "sea_floor_material": "minecraft:gravel",
         "foundation_material": "minecraft:stone",
         "mid_material": "minecraft:dirt",
-        "top_material": "minecraft:grass_block"
+        "top_material": "minecraft:grass_block",
+        "sea_material": "minecraft:water"
       },
       "minecraft:overworld_generation_rules": {
+        "hills_transformation": "lars:neon_twilight_meadows",
         "generate_for_climates": [
           [
             "medium",
@@ -34,7 +36,8 @@
       "minecraft:tags": {
         "tags": [
           "overworld",
-          "lars_neon"
+          "lars_neon",
+          "no_legacy_worldgen"
         ]
       }
     }
