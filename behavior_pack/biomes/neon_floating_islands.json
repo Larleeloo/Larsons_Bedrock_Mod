@@ -20,6 +20,12 @@
             "targets": ["minecraft:extreme_hills"],
             "amount": 0.3,
             "noise_frequency_scale": 25
+          },
+          {
+            "dimension": "lars:neon_dimension",
+            "targets": ["minecraft:extreme_hills"],
+            "amount": 0.8,
+            "noise_frequency_scale": 25
           }
         ]
       },
