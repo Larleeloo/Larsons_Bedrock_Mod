@@ -16,10 +16,10 @@
     "max_depth": 10,
     "start_height": {
       "type": "uniform",
-      "min_inclusive": {
+      "min": {
         "absolute": 10
       },
-      "max_inclusive": {
+      "max": {
         "absolute": 55
       }
     },
