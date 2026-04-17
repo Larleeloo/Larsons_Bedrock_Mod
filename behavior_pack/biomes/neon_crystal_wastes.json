@@ -24,7 +24,7 @@
         "sea_floor_material": "minecraft:gravel",
         "foundation_material": "minecraft:stone",
         "mid_material": "minecraft:light_blue_terracotta",
-        "top_material": "minecraft:light_blue_concrete",
+        "top_material": "minecraft:snow",
         "sea_material": "minecraft:water"
       },
       "minecraft:overworld_generation_rules": {
@@ -39,8 +39,12 @@
           ]
         ]
       },
-      "lars_neon": {},
-      "overworld": {}
+      "frozen": {},
+      "ice": {},
+      "overworld": {},
+      "animal": {},
+      "monster": {},
+      "lars_neon": {}
     }
   }
 }

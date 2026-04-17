@@ -40,11 +40,8 @@
       "minecraft:podzol",
       "minecraft:mycelium",
       "minecraft:moss_block",
-      "minecraft:magenta_concrete",
-      "minecraft:light_blue_concrete",
-      "minecraft:cyan_concrete",
-      "minecraft:purple_concrete",
-      "minecraft:lime_concrete"
+      "minecraft:snow",
+      "minecraft:snow_layer"
     ],
     "may_replace": [
       "minecraft:air"

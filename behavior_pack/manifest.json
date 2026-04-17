@@ -1,13 +1,13 @@
 {
   "format_version": 2,
   "header": {
-    "description": "Larson's Glow Block v1.0.6 - 22 glowing blocks + 5 neon biomes with tree features.",
-    "name": "Larson's Glow Block BP v1.0.6",
+    "description": "Larson's Glow Block v1.0.7 - Fixed biome registration.",
+    "name": "Larson's Glow Block BP v1.0.7",
     "uuid": "64f33380-afbf-425b-ba04-0271539fb1ed",
     "version": [
       1,
       0,
-      6
+      7
     ],
     "min_engine_version": [
       1,
@@ -23,7 +23,7 @@
       "version": [
         1,
         0,
-        6
+        7
       ]
     }
   ],
@@ -33,7 +33,7 @@
       "version": [
         1,
         0,
-        6
+        7
       ]
     }
   ]
