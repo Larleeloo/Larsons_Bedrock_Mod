@@ -7,7 +7,7 @@
     "biome_filters": [
       {
         "test": "has_biome_tag",
-        "value": "overworld"
+        "value": "lars_dungeon_zone"
       }
     ],
     "step": "surface_structures",

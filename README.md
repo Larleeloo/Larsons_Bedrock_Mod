@@ -131,14 +131,22 @@ same pool. `max_depth: 7` caps how far the chain can extend.
 
 ### Placement
 
-- **Biome filter:** any biome tagged `overworld`.
-- **Spacing / separation:** 24 / 8 chunks (random spread grid).
+- **Biome filter:** only biomes tagged `lars_dungeon_zone`.
+- **Spacing / separation:** 40 / 12 chunks (random spread grid).
 - **Step:** `surface_structures`.
 - **Start height:** 64 above the bottom of the world.
 
-To make it rarer, increase `spacing` in `worldgen/structure_sets/test_dungeon.json`.
-To restrict it to specific biomes, change the `biome_filters` tag (e.g.
-`lars_neon` for the mod's neon biomes).
+### Rare gate biome (`lars:dungeon_zone`)
+
+Defined in `behavior_pack/biomes/dungeon_zone.json`. Replaces 4% of plains /
+forest / taiga / savanna chunks (`amount: 0.04`, `noise_frequency_scale: 80`),
+and carries the `lars_dungeon_zone` tag that the jigsaw filter looks for.
+
+Tuning knobs:
+
+- Rarer dungeons → lower `amount` (e.g. `0.02`) or raise structure `spacing`.
+- Bigger patches → raise `noise_frequency_scale`.
+- Different hosts → edit `replacements[0].targets`.
 
 ## Engine / Format Versions
 
