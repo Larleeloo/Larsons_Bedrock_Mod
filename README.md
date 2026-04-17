@@ -96,6 +96,50 @@ The packs are cross-dependencies of each other via the `dependencies` array so M
 
 Alternatively, zip the two pack folders together (both at the archive root, no wrapper folder), rename to `.mcaddon`, and double-click.
 
+## Jigsaw Dungeon (`lars:test_dungeon`)
+
+A basic jigsaw structure that spawns in overworld biomes. Built following the
+official [jigsaw sample](https://github.com/microsoft/minecraft-samples/tree/main/jigsaws).
+
+### Files
+
+```
+behavior_pack/
+├── structures/
+│   └── lars/
+│       └── test_structure.mcstructure    ← drop your file here
+└── worldgen/
+    ├── structures/
+    │   └── test_dungeon.json             ← minecraft:jigsaw
+    ├── structure_sets/
+    │   └── test_dungeon.json             ← minecraft:structure_set (placement)
+    └── template_pools/
+        └── test.json                     ← lars:test pool referencing the mcstructure
+```
+
+### Expected structure format
+
+- Single structure `test_structure.mcstructure` with 6 jigsaw blocks.
+- All jigsaws use pool `lars:test` (so pieces chain to copies of themselves).
+- Side jigsaws named `walkside` (target `walkside`).
+- Top jigsaw `walkup` → target `walkdown`.
+- Bottom jigsaw `walkdown` → target `walkup`.
+
+The jigsaw structure's `start_pool` is `lars:test` — the same pool the jigsaw
+blocks point to — so the root piece and every expanded piece come from the
+same pool. `max_depth: 7` caps how far the chain can extend.
+
+### Placement
+
+- **Biome filter:** any biome tagged `overworld`.
+- **Spacing / separation:** 24 / 8 chunks (random spread grid).
+- **Step:** `surface_structures`.
+- **Start height:** 64 above the bottom of the world.
+
+To make it rarer, increase `spacing` in `worldgen/structure_sets/test_dungeon.json`.
+To restrict it to specific biomes, change the `biome_filters` tag (e.g.
+`lars_neon` for the mod's neon biomes).
+
 ## Engine / Format Versions
 
 - Pack manifest `format_version`: `2`
