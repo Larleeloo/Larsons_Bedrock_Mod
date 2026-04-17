@@ -1,0 +1,18 @@
+{
+  "format_version": "1.21.100",
+  "minecraft:template_pool": {
+    "description": {
+      "identifier": "lars:test_dungeon_start"
+    },
+    "elements": [
+      {
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "lars/test_structure",
+          "projection": "rigid"
+        },
+        "weight": 1
+      }
+    ]
+  }
+}
