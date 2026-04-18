@@ -252,5 +252,5 @@ resolved to file paths by `sounds/sound_definitions.json`.
 - Pack manifest `format_version`: `2`
 - Pack version: `1.0.5`
 - Minimum engine version: `1.21.0` (Minecraft Bedrock 1.21+ / v26.13 launcher build)
-- Block `format_version`: `1.21.40`
+- Block `format_version`: `1.21.80`
 - `blocks.json` version: `[1, 1, 0]`

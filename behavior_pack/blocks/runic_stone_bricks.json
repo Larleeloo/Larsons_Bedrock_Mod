@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.40",
+  "format_version": "1.21.80",
   "minecraft:block": {
     "description": {
       "identifier": "lars:runic_stone_bricks",
@@ -15,7 +15,9 @@
       "minecraft:destructible_by_explosion": {
         "explosion_resistance": 1200
       },
-      "minecraft:map_color": "#5C5C5C",
+      "minecraft:map_color": {
+        "color": "#5C5C5C"
+      },
       "minecraft:geometry": "minecraft:geometry.full_block",
       "minecraft:material_instances": {
         "*": {

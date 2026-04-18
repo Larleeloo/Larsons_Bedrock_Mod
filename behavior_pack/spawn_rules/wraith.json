@@ -37,20 +37,11 @@
           "lars:dark_stone_rune",
           "lars:cracked_stone_rune"
         ],
-        "minecraft:brightness_filter": {
-          "min": 0,
-          "max": 7,
-          "adjust_for_weather": false
-        },
         "minecraft:weight": {
-          "default": 120
-        },
-        "minecraft:herd": {
-          "min_size": 1,
-          "max_size": 3
+          "default": 500
         },
         "minecraft:density_limit": {
-          "underground": 6
+          "underground": 10
         }
       }
     ]
