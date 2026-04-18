@@ -24,3 +24,5 @@ tile.lars:stone_rune.name=Stone Rune
 tile.lars:cracked_stone_rune.name=Cracked Stone Rune
 tile.lars:dark_stone_rune.name=Dark Stone Rune
 tile.lars:runic_stone_bricks.name=Runic Stone Bricks
+entity.lars:wraith.name=Wraith
+item.spawn_egg.entity.lars:wraith.name=Spawn Wraith
