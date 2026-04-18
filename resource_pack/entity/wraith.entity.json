@@ -26,8 +26,8 @@
         "controller.render.wraith"
       ],
       "spawn_egg": {
-        "base_color": "#2B1E4A",
-        "overlay_color": "#B9A8FF"
+        "texture": "spawn_egg_wraith",
+        "texture_index": 0
       }
     }
   }

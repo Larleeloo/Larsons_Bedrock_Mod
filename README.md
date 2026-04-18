@@ -195,7 +195,9 @@ resource_pack/
 ├── sounds/wraith/{ambient,hurt,death}.ogg   ← ADD
 ├── models/entity/wraith.geo.json        ← ADD (BlockBench export)
 ├── animations/wraith.animation.json     ← ADD (BlockBench export)
-└── textures/entity/wraith/wraith.png    ← ADD
+├── textures/entity/wraith/wraith.png    ← ADD
+├── textures/item_texture.json           ← shortname `spawn_egg_wraith`
+└── textures/items/wraith_spawn_egg.png  ← ADD (custom spawn egg)
 ```
 
 ### Spawning
