@@ -16,14 +16,15 @@
       "minecraft:destructible_by_explosion": {
         "explosion_resistance": 3
       },
-      "minecraft:map_color": "#7DF9FF",
+      "minecraft:map_color": {
+        "color": "#7DF9FF"
+      },
       "minecraft:geometry": "minecraft:geometry.full_block",
       "minecraft:material_instances": {
         "*": {
           "texture": "lars_glow_block",
           "render_method": "opaque",
-          "face_dimming": false,
-          "ambient_occlusion": false
+          "ambient_occlusion": 0
         }
       }
     }

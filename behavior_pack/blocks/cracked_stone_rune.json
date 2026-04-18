@@ -15,7 +15,9 @@
       "minecraft:destructible_by_explosion": {
         "explosion_resistance": 900
       },
-      "minecraft:map_color": "#4A4A4A",
+      "minecraft:map_color": {
+        "color": "#4A4A4A"
+      },
       "minecraft:geometry": "minecraft:geometry.full_block",
       "minecraft:material_instances": {
         "*": {

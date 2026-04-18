@@ -8,14 +8,40 @@
     "conditions": [
       {
         "minecraft:spawns_on_surface": {},
-        "minecraft:spawns_underground": {},
+        "minecraft:brightness_filter": {
+          "min": 0,
+          "max": 14,
+          "adjust_for_weather": true
+        },
         "minecraft:weight": {
-          "default": 1000
+          "default": 100
+        },
+        "minecraft:herd": {
+          "min_size": 1,
+          "max_size": 2
         },
         "minecraft:biome_filter": {
           "test": "has_biome_tag",
           "operator": "==",
-          "value": "overworld"
+          "value": "lars_dungeon_zone"
+        },
+        "minecraft:density_limit": {
+          "surface": 4
+        }
+      },
+      {
+        "minecraft:spawns_underground": {},
+        "minecraft:spawns_on_block_filter": [
+          "lars:runic_stone_bricks",
+          "lars:stone_rune",
+          "lars:dark_stone_rune",
+          "lars:cracked_stone_rune"
+        ],
+        "minecraft:weight": {
+          "default": 500
+        },
+        "minecraft:density_limit": {
+          "underground": 10
         }
       }
     ]

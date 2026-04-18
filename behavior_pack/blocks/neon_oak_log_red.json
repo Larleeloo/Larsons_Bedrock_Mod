@@ -23,20 +23,20 @@
       "minecraft:destructible_by_explosion": {
         "explosion_resistance": 2.0
       },
-      "minecraft:map_color": "#FF1040",
+      "minecraft:map_color": {
+        "color": "#FF1040"
+      },
       "minecraft:geometry": "minecraft:geometry.full_block",
       "minecraft:material_instances": {
         "*": {
           "texture": "neon_oak_log_red",
           "render_method": "opaque",
-          "face_dimming": false,
-          "ambient_occlusion": false
+          "ambient_occlusion": 0
         },
         "end": {
           "texture": "neon_oak_log_red_top",
           "render_method": "opaque",
-          "face_dimming": false,
-          "ambient_occlusion": false
+          "ambient_occlusion": 0
         },
         "up": "end",
         "down": "end"
