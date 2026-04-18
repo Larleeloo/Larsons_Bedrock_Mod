@@ -1,0 +1,19 @@
+{
+  "entity_sounds": {
+    "entities": {
+      "lars:wraith": {
+        "volume": 1.0,
+        "pitch": [0.9, 1.1],
+        "events": {
+          "ambient": {
+            "sound": "mob.wraith.ambient",
+            "volume": 0.6,
+            "pitch": [0.85, 1.1]
+          },
+          "hurt": "mob.wraith.hurt",
+          "death": "mob.wraith.death"
+        }
+      }
+    }
+  }
+}

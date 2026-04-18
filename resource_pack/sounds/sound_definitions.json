@@ -1,0 +1,23 @@
+{
+  "format_version": "1.14.0",
+  "sound_definitions": {
+    "mob.wraith.ambient": {
+      "category": "hostile",
+      "sounds": [
+        "sounds/wraith/ambient"
+      ]
+    },
+    "mob.wraith.hurt": {
+      "category": "hostile",
+      "sounds": [
+        "sounds/wraith/hurt"
+      ]
+    },
+    "mob.wraith.death": {
+      "category": "hostile",
+      "sounds": [
+        "sounds/wraith/death"
+      ]
+    }
+  }
+}
