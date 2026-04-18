@@ -1,0 +1,32 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.wraith.general": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            "idle"
+          ],
+          "transitions": [
+            {
+              "attacking": "query.attack_time > 0.0"
+            }
+          ]
+        },
+        "attacking": {
+          "animations": [
+            "idle",
+            "attack"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.attack_time <= 0.0"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

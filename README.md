@@ -160,6 +160,84 @@ Tuning knobs:
 - Bigger patches → raise `noise_frequency_scale`.
 - Different hosts → edit `replacements[0].targets`.
 
+## Wraith Mob (`lars:wraith`)
+
+A custom hostile mob that spawns in the `lars:dungeon_zone` biome and inside
+the runic tunnel dungeons. Follows the entity structure from the
+[add_entity_robot](https://github.com/microsoft/minecraft-samples/tree/main/add_entity_robot)
+and [shapeshifter](https://github.com/microsoft/minecraft-samples/tree/main/shapeshifter)
+samples.
+
+### Stats
+
+| Stat | Value |
+| --- | --- |
+| Health | 40 HP |
+| Movement speed | 0.23 (same as zombie) |
+| Attack damage | 10 |
+| Target | Players (35 block detection) |
+| Drops | 1–3 gold ingots |
+| Type families | `wraith`, `monster`, `undead`, `mob` |
+
+### Files
+
+```
+behavior_pack/
+├── entities/wraith.json                 ← AI, HP, attack, movement
+├── spawn_rules/wraith.json              ← dungeon_zone + underground
+└── loot_tables/entities/wraith.json     ← 1-3 gold ingots
+resource_pack/
+├── entity/wraith.entity.json            ← client wiring
+├── render_controllers/wraith.render_controllers.json
+├── animation_controllers/wraith.animation_controllers.json
+├── sounds.json                          ← ambient/hurt/death events
+├── sounds/sound_definitions.json        ← sound ID → ogg path
+├── sounds/wraith/{ambient,hurt,death}.ogg   ← ADD
+├── models/entity/wraith.geo.json        ← ADD (BlockBench export)
+├── animations/wraith.animation.json     ← ADD (BlockBench export)
+├── textures/entity/wraith/wraith.png    ← ADD
+├── textures/item_texture.json           ← shortname `spawn_egg_wraith`
+└── textures/items/wraith_spawn_egg.png  ← ADD (custom spawn egg)
+```
+
+### Spawning
+
+- **Biome filter:** biomes tagged `lars_dungeon_zone` (the rare gate biome
+  that hosts the jigsaw dungeons). Because runic tunnel dungeons are placed
+  inside this biome, enabling both `spawns_on_surface` and `spawns_underground`
+  in the spawn rule covers both open-air and in-tunnel spawns.
+- **Brightness:** 0–11 (dim light / night).
+- **Weight:** 80, herd size 1–2.
+- **Population:** `monster`.
+
+### Animation controller
+
+`controller.animation.wraith.general` plays `idle` in its `default` state and
+transitions to `attacking` (idle + attack blended) whenever `query.attack_time`
+is non-zero — i.e. during the `minecraft:behavior.melee_attack` cooldown. The
+idle animation must be set to `loop` in BlockBench; the attack animation
+should be a single-shot (not looping).
+
+### Required BlockBench output
+
+See the placeholder README files dropped in each asset directory. In short:
+
+1. **Geometry** — `File → Export → Bedrock Geometry` → save as
+   `resource_pack/models/entity/wraith.geo.json`. Identifier must be
+   `geometry.wraith`.
+2. **Animations** — `Animate → File → Export Animations` → save as
+   `resource_pack/animations/wraith.animation.json`. Animation IDs must be
+   `animation.wraith.idle` (looping) and `animation.wraith.attack`
+   (one-shot).
+3. **Texture** — `resource_pack/textures/entity/wraith/wraith.png`.
+
+### Required audio
+
+Three `.ogg` files in `resource_pack/sounds/wraith/`:
+`ambient.ogg`, `hurt.ogg`, `death.ogg`. They're wired to the entity's
+built-in `ambient` / `hurt` / `death` sound events via `sounds.json` and
+resolved to file paths by `sounds/sound_definitions.json`.
+
 ## Engine / Format Versions
 
 - Pack manifest `format_version`: `2`
