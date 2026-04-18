@@ -206,8 +206,10 @@ resource_pack/
   that hosts the jigsaw dungeons). Because runic tunnel dungeons are placed
   inside this biome, enabling both `spawns_on_surface` and `spawns_underground`
   in the spawn rule covers both open-air and in-tunnel spawns.
-- **Brightness:** 0–11 (dim light / night).
-- **Weight:** 80, herd size 1–2.
+- **Brightness:** 0–14 (anything except direct daylight). Wraiths spawning
+  in the open daytime serve as a visual signpost for the rare dungeon_zone
+  biome, since they only spawn there.
+- **Weight:** 100, herd size 1–2.
 - **Population:** `monster`.
 
 ### Animation controller
@@ -243,5 +245,5 @@ resolved to file paths by `sounds/sound_definitions.json`.
 - Pack manifest `format_version`: `2`
 - Pack version: `1.0.5`
 - Minimum engine version: `1.21.0` (Minecraft Bedrock 1.21+ / v26.13 launcher build)
-- Block `format_version`: `1.21.80`
+- Block `format_version`: `1.21.40`
 - `blocks.json` version: `[1, 1, 0]`

@@ -86,11 +86,16 @@
       "minecraft:behavior.float": {
         "priority": 0
       },
-      "minecraft:behavior.melee_attack": {
+      "minecraft:behavior.delayed_attack": {
         "priority": 3,
+        "attack_once": false,
         "track_target": true,
+        "require_complete_path": false,
+        "random_stop_interval": 0,
         "reach_multiplier": 1.5,
-        "speed_multiplier": 1.0
+        "speed_multiplier": 1.0,
+        "attack_duration": 0.75,
+        "hit_delay_pct": 0.5
       },
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 2,

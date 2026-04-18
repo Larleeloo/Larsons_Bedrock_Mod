@@ -11,11 +11,11 @@
         "minecraft:spawns_underground": {},
         "minecraft:brightness_filter": {
           "min": 0,
-          "max": 11,
+          "max": 14,
           "adjust_for_weather": true
         },
         "minecraft:weight": {
-          "default": 80
+          "default": 100
         },
         "minecraft:herd": {
           "min_size": 1,
@@ -27,7 +27,7 @@
           "value": "lars_dungeon_zone"
         },
         "minecraft:density_limit": {
-          "surface": 3,
+          "surface": 4,
           "underground": 5
         }
       }
