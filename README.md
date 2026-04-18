@@ -202,15 +202,22 @@ resource_pack/
 
 ### Spawning
 
-- **Biome filter:** biomes tagged `lars_dungeon_zone` (the rare gate biome
-  that hosts the jigsaw dungeons). Because runic tunnel dungeons are placed
-  inside this biome, enabling both `spawns_on_surface` and `spawns_underground`
-  in the spawn rule covers both open-air and in-tunnel spawns.
-- **Brightness:** 0–14 (anything except direct daylight). Wraiths spawning
-  in the open daytime serve as a visual signpost for the rare dungeon_zone
-  biome, since they only spawn there.
-- **Weight:** 100, herd size 1–2.
-- **Population:** `monster`.
+Two OR'd spawn conditions:
+
+1. **Surface signpost** — `spawns_on_surface` in biomes tagged
+   `lars_dungeon_zone`, brightness 0–14 (anything except direct
+   daylight), weight 100, surface density 4, herd 1–2. Wraiths
+   roaming in the open are the visible cue that you're standing on
+   a rare dungeon_zone biome.
+2. **Dungeon interior** — `spawns_underground` on top of any runic
+   block (`lars:runic_stone_bricks`, `lars:stone_rune`,
+   `lars:dark_stone_rune`, `lars:cracked_stone_rune`), brightness
+   0–7, weight 120, underground density 6, herd 1–3. The block
+   filter bypasses the biome check so wraiths spawn inside the
+   runic tunnels regardless of whether that voxel still falls in
+   the dungeon_zone biome bounds.
+
+Population control: `monster` (shares the vanilla monster cap).
 
 ### Animation controller
 
