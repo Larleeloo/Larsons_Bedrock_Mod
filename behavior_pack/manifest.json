@@ -1,18 +1,18 @@
 {
   "format_version": 2,
   "header": {
-    "description": "Larson's Glow Block v1.0.17 - Fix trees, blocks.json, remove dimension.",
-    "name": "Larson's Glow Block BP v1.0.17",
+    "description": "Larson's Glow Block v1.0.18 - Bump block format_version to 1.21.100 to fix 'Unexpected version' errors on 1.26+ engines.",
+    "name": "Larson's Glow Block BP v1.0.18",
     "uuid": "64f33380-afbf-425b-ba04-0271539fb1ed",
     "version": [
       1,
       0,
-      17
+      18
     ],
     "min_engine_version": [
       1,
       21,
-      110
+      120
     ]
   },
   "modules": [
@@ -23,7 +23,7 @@
       "version": [
         1,
         0,
-        17
+        18
       ]
     }
   ],
@@ -33,7 +33,7 @@
       "version": [
         1,
         0,
-        17
+        18
       ]
     }
   ]
