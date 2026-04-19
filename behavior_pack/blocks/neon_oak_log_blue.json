@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.100",
+  "format_version": "1.21.120",
   "minecraft:block": {
     "description": {
       "identifier": "lars:neon_oak_log_blue",
@@ -46,7 +46,7 @@
         "destroy_chance_modifier": 5
       },
       "minecraft:fuel": {
-        "duration": 15
+        "duration": 3
       }
     },
     "permutations": [

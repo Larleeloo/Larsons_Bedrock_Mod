@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.100",
+  "format_version": "1.21.120",
   "minecraft:block": {
     "description": {
       "identifier": "lars:neon_oak_planks_green",
@@ -32,7 +32,7 @@
         "destroy_chance_modifier": 20
       },
       "minecraft:fuel": {
-        "duration": 15
+        "duration": 3
       }
     }
   }

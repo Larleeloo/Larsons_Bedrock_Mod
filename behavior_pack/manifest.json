@@ -1,13 +1,13 @@
 {
   "format_version": 2,
   "header": {
-    "description": "Larson's Glow Block v1.0.21 - Fix tree feature schemas (pine/spruce/mega/mega-pine/roofed), guard startup event, and add neon oak logs/planks/leaves/saplings as furnace fuel.",
-    "name": "Larson's Glow Block BP v1.0.21",
+    "description": "Larson's Glow Block v1.0.22 - Bump neon wood block format_version to 1.21.120 and set fuel duration to 3 so the minecraft:fuel component registers and blocks load.",
+    "name": "Larson's Glow Block BP v1.0.22",
     "uuid": "64f33380-afbf-425b-ba04-0271539fb1ed",
     "version": [
       1,
       0,
-      21
+      22
     ],
     "min_engine_version": [
       1,
@@ -23,7 +23,7 @@
       "version": [
         1,
         0,
-        21
+        22
       ]
     },
     {
@@ -35,7 +35,7 @@
       "version": [
         1,
         0,
-        21
+        22
       ]
     }
   ],
@@ -45,7 +45,7 @@
       "version": [
         1,
         0,
-        21
+        22
       ]
     },
     {
