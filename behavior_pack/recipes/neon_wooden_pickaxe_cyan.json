@@ -1,0 +1,16 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "lars:neon_wooden_pickaxe_cyan"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [ "XXX", " # ", " # " ],
+    "key": {
+      "#": { "item": "stick" },
+      "X": { "item": "lars:neon_oak_planks_cyan" }
+    },
+    "unlock": [ { "item": "stick" } ],
+    "result": { "item": "wooden_pickaxe" }
+  }
+}

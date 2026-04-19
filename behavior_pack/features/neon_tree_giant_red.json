@@ -1,0 +1,30 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:tree_feature": {
+    "description": {
+      "identifier": "lars:neon_tree_giant_red"
+    },
+    "trunk": {
+      "trunk_block": { "name": "lars:neon_oak_log_red" },
+      "trunk_height": { "range_min": 13, "range_max": 18 },
+      "can_be_submerged": false
+    },
+    "canopy": {
+      "leaf_block": { "name": "lars:neon_oak_leaves_red" },
+      "canopy_offset": { "min": -4, "max": 0 },
+      "variation_chance": [ { "numerator": 2, "denominator": 3 } ]
+    },
+    "base_block": [ "minecraft:dirt" ],
+    "may_grow_on": [
+      "minecraft:dirt",
+      "minecraft:grass_block",
+      "minecraft:podzol",
+      "minecraft:mycelium",
+      "minecraft:moss_block",
+      "minecraft:snow",
+      "minecraft:snow_layer"
+    ],
+    "may_replace": [ "minecraft:air" ],
+    "may_grow_through": [ "minecraft:air" ]
+  }
+}

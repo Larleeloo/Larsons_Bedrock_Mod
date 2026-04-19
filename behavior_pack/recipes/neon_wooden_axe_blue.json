@@ -1,0 +1,16 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "lars:neon_wooden_axe_blue"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [ "XX", "X#", " #" ],
+    "key": {
+      "#": { "item": "stick" },
+      "X": { "item": "lars:neon_oak_planks_blue" }
+    },
+    "unlock": [ { "item": "stick" } ],
+    "result": { "item": "wooden_axe" }
+  }
+}
