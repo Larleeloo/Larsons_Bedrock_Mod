@@ -352,17 +352,20 @@ lets the glowing logs feed the normal coal economy.
 **Fuel.** Every neon wood block carries a `minecraft:fuel` component so the
 blocks themselves also burn in furnaces just like vanilla wood:
 
-| Block | Burn duration |
+| Item | Burn duration |
 | --- | --- |
-| `lars:neon_oak_log_<color>` | 3 s |
-| `lars:neon_oak_planks_<color>` | 3 s |
-| `lars:neon_oak_leaves_<color>` | 3 s |
-| `lars:neon_oak_sapling_<color>` | 3 s |
+| `lars:neon_oak_log_<color>` | 15 s (vanilla oak log parity) |
+| `lars:neon_oak_planks_<color>` | 15 s |
+| `lars:neon_oak_leaves_<color>` | 5 s |
+| `lars:neon_oak_sapling_<color>` | 5 s |
 
-> Note: the 28 neon wood block JSONs use `format_version: 1.21.120` (matching the
-> pack's `min_engine_version`). At the older `1.21.100` format the
-> `minecraft:fuel` block component is rejected, which prevented every neon
-> block from registering.
+> `minecraft:fuel` is an **item** component in Bedrock — adding it directly to
+> a block's `components` block is rejected and causes the entire block to
+> fail to register. v1.0.23 therefore keeps the block JSONs clean and ships a
+> parallel `behavior_pack/items/<id>.json` for each of the 28 neon wood
+> blocks. Each item reuses the block's identifier and carries only
+> `minecraft:fuel`, which the engine merges onto the block's
+> auto-generated item form.
 
 ## Extra Tree Canopy / Trunk Styles
 
@@ -402,26 +405,36 @@ behavior pack manifest (depends on `@minecraft/server` 1.14.0). It handles:
 ## Engine / Format Versions
 
 - Pack manifest `format_version`: `2`
-- Pack version: `1.0.22`
+- Pack version: `1.0.23`
 - Minimum engine version: `1.21.120` (Minecraft Bedrock v26.x launcher builds)
-- Block `format_version`: `1.21.100` (neon wood blocks are bumped to `1.21.120` so the `minecraft:fuel` component is recognised)
+- Block `format_version`: `1.21.100`
+- Item `format_version` (fuel override items in `behavior_pack/items/`): `1.20.50`
 - Recipe `format_version`: `1.20.10`
 - Feature / feature_rule `format_version`: `1.21.110`
 - Script API: `@minecraft/server` `1.14.0`
 
-## v1.0.22 — Fuel Component Hotfix
+## v1.0.23 — Fuel As An Item Override
 
-At `format_version: "1.21.100"` the `minecraft:fuel` block component is not
-recognised by the engine, and adding it rejected the entire block JSON. This
-cascaded into "Unknown block during Deferred BlockDescriptor resolution",
-"Item is missing or invalid" on every tool/chest/stick crafting recipe, and
-`blocks.json` registry warnings for every neon block.
+Per the Microsoft Learn reference, `minecraft:fuel` is an **item** component,
+not a block component. Adding it inside a block's `components` block (as
+v1.0.21 and v1.0.22 did, at `format_version` 1.21.100 and 1.21.120
+respectively) causes the whole block to fail to register, which cascades into
+the "Item missing or invalid" recipe errors, "Unknown block during Deferred
+BlockDescriptor resolution" errors, and `blocks.json` registry warnings for
+every neon wood block.
 
-Fix: bump the 28 neon wood block JSONs (log / planks / leaves / sapling × 7
-colors) to `format_version: "1.21.120"` — matching the pack's
-`min_engine_version` — and set `"minecraft:fuel": { "duration": 3 }` in the
-schema-accepted form. Everything registers again and the blocks now work as
-furnace fuel.
+Fix:
+
+- Remove `minecraft:fuel` from all 28 neon wood block JSONs and restore
+  them to `format_version: 1.21.100`.
+- Add 28 files in `behavior_pack/items/` (one per log / planks / leaves /
+  sapling × 7 colors). Each item definition uses the same identifier as the
+  corresponding block and carries only `"minecraft:fuel": { "duration": N }`
+  (15 s for logs/planks, 5 s for leaves/saplings), which the engine merges
+  onto the block's auto-generated item form.
+
+Blocks register again, all crafting recipes resolve, and the inventory
+item for every neon wood block now burns in a furnace.
 
 ## v1.0.21 — Fixes and Fuel
 

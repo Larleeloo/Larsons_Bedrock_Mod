@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.120",
+  "format_version": "1.21.100",
   "minecraft:block": {
     "description": {
       "identifier": "lars:neon_oak_sapling_magenta",
@@ -61,9 +61,6 @@
       "minecraft:flammable": {
         "catch_chance_modifier": 60,
         "destroy_chance_modifier": 100
-      },
-      "minecraft:fuel": {
-        "duration": 3
       }
     }
   }
