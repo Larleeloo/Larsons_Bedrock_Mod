@@ -53,9 +53,17 @@ function growSapling(block) {
   return true;
 }
 
-system.beforeEvents.startup.subscribe((event) => {
-  event.dimensionRegistry.registerCustomDimension(NEON_DIM_ID);
-});
+// Guard the startup event: on older runtimes system.beforeEvents or .startup
+// can be undefined, and the custom dimension is optional for tree growth.
+try {
+  if (system.beforeEvents && system.beforeEvents.startup) {
+    system.beforeEvents.startup.subscribe((event) => {
+      try {
+        event.dimensionRegistry.registerCustomDimension(NEON_DIM_ID);
+      } catch (_) {}
+    });
+  }
+} catch (_) {}
 
 system.afterEvents.scriptEventReceive.subscribe((event) => {
   const player = event.sourceEntity;

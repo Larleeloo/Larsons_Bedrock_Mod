@@ -342,12 +342,22 @@ If the chosen feature fails to place (terrain blockage, submerged, etc.) the
 script falls back to the plain `neon_tree_<color>` so the player still sees a
 tree appear.
 
-## Furnace Smelting (Neon Logs → Charcoal)
+## Furnace Smelting (Neon Logs → Charcoal) + Fuel
 
 7 furnace recipes, one per color, in `behavior_pack/recipes/neon_smelt_log_<color>.json`.
 Each accepts `lars:neon_oak_log_<color>` as input and outputs vanilla
 `charcoal` — valid at `furnace`, `smoker`, and `blast_furnace` stations. This
 lets the glowing logs feed the normal coal economy.
+
+**Fuel.** Every neon wood block carries a `minecraft:fuel` component so the
+blocks themselves also burn in furnaces just like vanilla wood:
+
+| Block | Burn duration |
+| --- | --- |
+| `lars:neon_oak_log_<color>` | 15 s (matches vanilla oak log) |
+| `lars:neon_oak_planks_<color>` | 15 s |
+| `lars:neon_oak_leaves_<color>` | 5 s |
+| `lars:neon_oak_sapling_<color>` | 5 s |
 
 ## Extra Tree Canopy / Trunk Styles
 
@@ -387,10 +397,28 @@ behavior pack manifest (depends on `@minecraft/server` 1.14.0). It handles:
 ## Engine / Format Versions
 
 - Pack manifest `format_version`: `2`
-- Pack version: `1.0.20`
+- Pack version: `1.0.21`
 - Minimum engine version: `1.21.120` (Minecraft Bedrock v26.x launcher builds)
 - Block `format_version`: `1.21.100`
 - Recipe `format_version`: `1.20.10`
 - Feature / feature_rule `format_version`: `1.21.110`
 - Script API: `@minecraft/server` `1.14.0`
+
+## v1.0.21 — Fixes and Fuel
+
+- **Tree feature schemas fixed.** The `pine_canopy`, `spruce_canopy`,
+  `mega_canopy`, `mega_pine_canopy`, and `roofed_canopy` families don't accept
+  `canopy_offset` (it's only valid on the basic `canopy` type). Removed it from
+  all 35 affected feature JSONs so those canopy styles actually register at
+  world load — previously every pine/spruce/mega/roofed tree silently fell
+  through to the plain neon_tree_<color> shape.
+- `roofed_canopy.canopy_height` bumped from `2` → `3` (schema minimum).
+- `mega_trunk.trunk_decoration` dropped to avoid the required
+  `decoration_chance` child (which was missing in v1.0.20).
+- **Startup guard.** `system.beforeEvents.startup` doesn't exist on older
+  engine builds; the script now feature-checks before subscribing so sapling
+  growth no longer crashes on engines that promoted past 1.14.0.
+- **Fuel.** Added `minecraft:fuel` to all 28 neon wood blocks (logs/planks =
+  15 s, leaves/saplings = 5 s) so neon wood burns in furnaces in addition to
+  smelting into charcoal.
 - `blocks.json` version: `[1, 1, 0]`
