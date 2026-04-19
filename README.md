@@ -354,10 +354,15 @@ blocks themselves also burn in furnaces just like vanilla wood:
 
 | Block | Burn duration |
 | --- | --- |
-| `lars:neon_oak_log_<color>` | 15 s (matches vanilla oak log) |
-| `lars:neon_oak_planks_<color>` | 15 s |
-| `lars:neon_oak_leaves_<color>` | 5 s |
-| `lars:neon_oak_sapling_<color>` | 5 s |
+| `lars:neon_oak_log_<color>` | 3 s |
+| `lars:neon_oak_planks_<color>` | 3 s |
+| `lars:neon_oak_leaves_<color>` | 3 s |
+| `lars:neon_oak_sapling_<color>` | 3 s |
+
+> Note: the 28 neon wood block JSONs use `format_version: 1.21.120` (matching the
+> pack's `min_engine_version`). At the older `1.21.100` format the
+> `minecraft:fuel` block component is rejected, which prevented every neon
+> block from registering.
 
 ## Extra Tree Canopy / Trunk Styles
 
@@ -397,12 +402,26 @@ behavior pack manifest (depends on `@minecraft/server` 1.14.0). It handles:
 ## Engine / Format Versions
 
 - Pack manifest `format_version`: `2`
-- Pack version: `1.0.21`
+- Pack version: `1.0.22`
 - Minimum engine version: `1.21.120` (Minecraft Bedrock v26.x launcher builds)
-- Block `format_version`: `1.21.100`
+- Block `format_version`: `1.21.100` (neon wood blocks are bumped to `1.21.120` so the `minecraft:fuel` component is recognised)
 - Recipe `format_version`: `1.20.10`
 - Feature / feature_rule `format_version`: `1.21.110`
 - Script API: `@minecraft/server` `1.14.0`
+
+## v1.0.22 — Fuel Component Hotfix
+
+At `format_version: "1.21.100"` the `minecraft:fuel` block component is not
+recognised by the engine, and adding it rejected the entire block JSON. This
+cascaded into "Unknown block during Deferred BlockDescriptor resolution",
+"Item is missing or invalid" on every tool/chest/stick crafting recipe, and
+`blocks.json` registry warnings for every neon block.
+
+Fix: bump the 28 neon wood block JSONs (log / planks / leaves / sapling × 7
+colors) to `format_version: "1.21.120"` — matching the pack's
+`min_engine_version` — and set `"minecraft:fuel": { "duration": 3 }` in the
+schema-accepted form. Everything registers again and the blocks now work as
+furnace fuel.
 
 ## v1.0.21 — Fixes and Fuel
 

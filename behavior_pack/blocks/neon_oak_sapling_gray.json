@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.100",
+  "format_version": "1.21.120",
   "minecraft:block": {
     "description": {
       "identifier": "lars:neon_oak_sapling_gray",
@@ -63,7 +63,7 @@
         "destroy_chance_modifier": 100
       },
       "minecraft:fuel": {
-        "duration": 5
+        "duration": 3
       }
     }
   }
