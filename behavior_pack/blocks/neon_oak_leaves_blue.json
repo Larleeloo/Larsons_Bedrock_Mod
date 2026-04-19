@@ -31,7 +31,10 @@
         "catch_chance_modifier": 30,
         "destroy_chance_modifier": 60
       },
-      "minecraft:loot": "loot_tables/blocks/neon_oak_leaves_blue.json"
+      "minecraft:loot": "loot_tables/blocks/neon_oak_leaves_blue.json",
+      "minecraft:fuel": {
+        "duration": 5
+      }
     }
   }
 }

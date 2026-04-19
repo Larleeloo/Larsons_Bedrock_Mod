@@ -1,13 +1,13 @@
 {
   "format_version": 2,
   "header": {
-    "description": "Larson's Glow Block v1.0.20 - Add furnace smelting, neon saplings (bone-mealable, drop from leaves), and 8 additional tree styles (fancy, pine, spruce, mega, mega-pine, acacia, cherry, roofed, mangrove) per color.",
-    "name": "Larson's Glow Block BP v1.0.20",
+    "description": "Larson's Glow Block v1.0.21 - Fix tree feature schemas (pine/spruce/mega/mega-pine/roofed), guard startup event, and add neon oak logs/planks/leaves/saplings as furnace fuel.",
+    "name": "Larson's Glow Block BP v1.0.21",
     "uuid": "64f33380-afbf-425b-ba04-0271539fb1ed",
     "version": [
       1,
       0,
-      20
+      21
     ],
     "min_engine_version": [
       1,
@@ -23,7 +23,7 @@
       "version": [
         1,
         0,
-        20
+        21
       ]
     },
     {
@@ -35,7 +35,7 @@
       "version": [
         1,
         0,
-        20
+        21
       ]
     }
   ],
@@ -45,7 +45,7 @@
       "version": [
         1,
         0,
-        20
+        21
       ]
     },
     {
