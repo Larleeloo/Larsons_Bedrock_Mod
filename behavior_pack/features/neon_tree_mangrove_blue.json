@@ -1,54 +1,48 @@
 {
   "format_version": "1.21.110",
   "minecraft:tree_feature": {
-    "description": { "identifier": "lars:neon_tree_mangrove_blue" },
-    "mangrove_trunk": {
-      "trunk_block": { "name": "lars:neon_oak_log_blue" },
-      "trunk_width": 1,
+    "description": {
+      "identifier": "lars:neon_tree_mangrove_blue"
+    },
+    "trunk": {
+      "trunk_block": {
+        "name": "lars:neon_oak_log_blue"
+      },
       "trunk_height": {
-        "base": 6,
-        "intervals": [ 2, 2 ],
-        "min_height_for_canopy": 4
+        "range_min": 7,
+        "range_max": 9
       },
-      "branches": {
-        "branch_length": 3,
-        "branch_position": {
-          "base": 4,
-          "intervals": [ 2 ]
-        },
-        "branch_canopy": {
-          "mangrove_canopy": {
-            "canopy_decoration": {
-              "decoration_blocks_sequence": [
-                [ "lars:neon_oak_leaves_blue", 1 ]
-              ],
-              "num_steps": 2,
-              "step_direction": "out"
-            },
-            "leaf_blocks": [ [ "lars:neon_oak_leaves_blue", 1 ] ],
-            "leaf_placement_attempts": 40
-          }
-        }
-      }
+      "can_be_submerged": false
     },
-    "mangrove_canopy": {
-      "canopy_decoration": {
-        "decoration_blocks_sequence": [
-          [ "lars:neon_oak_leaves_blue", 1 ]
-        ],
-        "num_steps": 3,
-        "step_direction": "out"
+    "canopy": {
+      "leaf_block": {
+        "name": "lars:neon_oak_leaves_blue"
       },
-      "leaf_blocks": [ [ "lars:neon_oak_leaves_blue", 1 ] ],
-      "leaf_placement_attempts": 60
+      "canopy_offset": {
+        "min": -2,
+        "max": 0
+      },
+      "canopy_height": 3,
+      "canopy_radius": 3
     },
-    "base_block": [ "minecraft:dirt" ],
+    "base_block": [
+      "minecraft:dirt"
+    ],
     "may_grow_on": [
-      "minecraft:dirt", "minecraft:grass_block", "minecraft:podzol",
-      "minecraft:mycelium", "minecraft:moss_block", "minecraft:mud",
+      "minecraft:dirt",
+      "minecraft:grass_block",
+      "minecraft:podzol",
+      "minecraft:mycelium",
+      "minecraft:moss_block",
+      "minecraft:mud",
       "minecraft:muddy_mangrove_roots"
     ],
-    "may_replace": [ "minecraft:air", "minecraft:water", "lars:neon_oak_leaves_blue" ],
-    "may_grow_through": [ "minecraft:air" ]
+    "may_replace": [
+      "minecraft:air",
+      "lars:neon_oak_leaves_blue"
+    ],
+    "may_grow_through": [
+      "minecraft:air"
+    ]
   }
 }

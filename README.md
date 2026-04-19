@@ -352,20 +352,13 @@ lets the glowing logs feed the normal coal economy.
 **Fuel.** Every neon wood block carries a `minecraft:fuel` component so the
 blocks themselves also burn in furnaces just like vanilla wood:
 
-| Item | Burn duration |
-| --- | --- |
-| `lars:neon_oak_log_<color>` | 15 s (vanilla oak log parity) |
-| `lars:neon_oak_planks_<color>` | 15 s |
-| `lars:neon_oak_leaves_<color>` | 5 s |
-| `lars:neon_oak_sapling_<color>` | 5 s |
-
-> `minecraft:fuel` is an **item** component in Bedrock — adding it directly to
-> a block's `components` block is rejected and causes the entire block to
-> fail to register. v1.0.23 therefore keeps the block JSONs clean and ships a
-> parallel `behavior_pack/items/<id>.json` for each of the 28 neon wood
-> blocks. Each item reuses the block's identifier and carries only
-> `minecraft:fuel`, which the engine merges onto the block's
-> auto-generated item form.
+> **Furnace fuel on neon wood is not currently wired up.** `minecraft:fuel` is
+> an **item** component in Bedrock. Putting it on a custom block rejects the
+> whole block JSON (v1.0.21 / v1.0.22). Declaring a parallel data-driven
+> item at the block's identifier (v1.0.23) does not merge with the
+> auto-generated block-item — it shadows it and strips the icon, display
+> name, and block-placement behaviour. v1.0.24 reverts both and leaves
+> charcoal-smelting as the furnace integration for neon logs.
 
 ## Extra Tree Canopy / Trunk Styles
 
@@ -405,13 +398,35 @@ behavior pack manifest (depends on `@minecraft/server` 1.14.0). It handles:
 ## Engine / Format Versions
 
 - Pack manifest `format_version`: `2`
-- Pack version: `1.0.23`
+- Pack version: `1.0.24`
 - Minimum engine version: `1.21.120` (Minecraft Bedrock v26.x launcher builds)
 - Block `format_version`: `1.21.100`
-- Item `format_version` (fuel override items in `behavior_pack/items/`): `1.20.50`
 - Recipe `format_version`: `1.20.10`
 - Feature / feature_rule `format_version`: `1.21.110`
 - Script API: `@minecraft/server` `1.14.0`
+
+## v1.0.24 — Inventory + Tree Schema Fixes
+
+- **Inventory fixed.** Deleted the entire `behavior_pack/items/` directory
+  added in v1.0.23. Those files didn't merge with the block's auto-generated
+  item; they shadowed it, producing `Missing icon for data-driven item
+  'lars:neon_oak_sapling_<color>'` spam and leaving every neon block's
+  inventory stack with no icon, no display name, and no placement behaviour.
+  Without the override, the engine auto-generates the block-items (with
+  textures and names) again. Fuel on neon wood is intentionally not
+  attempted any more — see the note in the Furnace section above.
+- **Tree schemas fixed.** The fancy / mangrove / acacia / cherry feature
+  JSONs were using subfields (`branches.branch_canopy`,
+  `branches.branch_length`, `branches.branch_position`,
+  `trunk_height.intervals`, `trunk_height.min_height_for_canopy`,
+  `acacia_trunk.branches.branch_position` with `range_min: 0`, and
+  `mangrove_canopy.canopy_decoration.decoration_blocks_sequence` entries
+  in array-of-array form) that the `minecraft:tree_feature` schema
+  rejects, so none of those 28 features were registering ("No definition
+  found for feature ..."). Rewrote each of them with a simple
+  `trunk` + basic `canopy` shape (tuned per style) so they actually
+  load; the identifiers are unchanged so `scripts/main.js` and the
+  feature_rules still hit them.
 
 ## v1.0.23 — Fuel As An Item Override
 
