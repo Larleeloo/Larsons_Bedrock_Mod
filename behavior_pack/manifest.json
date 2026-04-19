@@ -1,13 +1,13 @@
 {
   "format_version": 2,
   "header": {
-    "description": "Larson's Glow Block v1.0.18 - Bump block format_version to 1.21.100 to fix 'Unexpected version' errors on 1.26+ engines.",
-    "name": "Larson's Glow Block BP v1.0.18",
+    "description": "Larson's Glow Block v1.0.19 - Add neon wood crafting recipes (planks, sticks, tools, chest, crafting table) and three new tree variants (tall, giant, bush) spawning across neon biomes.",
+    "name": "Larson's Glow Block BP v1.0.19",
     "uuid": "64f33380-afbf-425b-ba04-0271539fb1ed",
     "version": [
       1,
       0,
-      18
+      19
     ],
     "min_engine_version": [
       1,
@@ -23,7 +23,7 @@
       "version": [
         1,
         0,
-        18
+        19
       ]
     }
   ],
@@ -33,7 +33,7 @@
       "version": [
         1,
         0,
-        18
+        19
       ]
     }
   ]

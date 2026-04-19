@@ -1,0 +1,19 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "lars:neon_oak_planks_gray"
+    },
+    "tags": [ "crafting_table" ],
+    "group": "planks",
+    "pattern": [ "#" ],
+    "key": {
+      "#": { "item": "lars:neon_oak_log_gray" }
+    },
+    "unlock": [ { "item": "lars:neon_oak_log_gray" } ],
+    "result": {
+      "item": "lars:neon_oak_planks_gray",
+      "count": 4
+    }
+  }
+}

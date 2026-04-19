@@ -247,10 +247,61 @@ Three `.ogg` files in `resource_pack/sounds/wraith/`:
 built-in `ambient` / `hurt` / `death` sound events via `sounds.json` and
 resolved to file paths by `sounds/sound_definitions.json`.
 
+## Neon Wood Crafting Recipes (`behavior_pack/recipes/`)
+
+Every color of neon oak now behaves like regular oak at the crafting table —
+logs convert to planks, planks become sticks, and the usual wooden tool / chest
+/ crafting-table recipes all accept neon planks. One recipe per color × nine
+item outputs = **63 shaped recipes**, following the
+[Mojang vanilla recipe format](https://github.com/Mojang/bedrock-samples/tree/main/behavior_pack/recipes)
+(`format_version 1.20.10`, tagged `crafting_table`).
+
+| Recipe | Pattern | Inputs (per color) | Result |
+| --- | --- | --- | --- |
+| `lars:neon_oak_planks_<color>` | `#` | 1 × `lars:neon_oak_log_<color>` | 4 × `lars:neon_oak_planks_<color>` |
+| `lars:neon_stick_<color>` | `A` / `A` | 2 × neon planks | 4 × `stick` |
+| `lars:neon_crafting_table_<color>` | `AA` / `AA` | 4 × neon planks | 1 × `crafting_table` |
+| `lars:neon_chest_<color>` | `AAA` / `A A` / `AAA` | 8 × neon planks | 1 × `chest` |
+| `lars:neon_wooden_pickaxe_<color>` | `XXX` / ` # ` / ` # ` | 3 planks + 2 sticks | 1 × `wooden_pickaxe` |
+| `lars:neon_wooden_axe_<color>` | `XX` / `X#` / ` #` | 3 planks + 2 sticks | 1 × `wooden_axe` |
+| `lars:neon_wooden_shovel_<color>` | `X` / `#` / `#` | 1 plank + 2 sticks | 1 × `wooden_shovel` |
+| `lars:neon_wooden_sword_<color>` | `X` / `X` / `#` | 2 planks + 1 stick | 1 × `wooden_sword` |
+| `lars:neon_wooden_hoe_<color>` | `XX` / ` #` / ` #` | 2 planks + 2 sticks | 1 × `wooden_hoe` |
+
+Because sticks craft 1-for-1 from planks (no tag merging), the stick recipe
+carries `"priority": 1` — vanilla oak/birch/etc. recipes still win when a
+player has real planks in their inventory. The planks recipe uses
+`"group": "planks"` so all neon plank recipes share the recipe-book category.
+
+## Neon Tree Varieties
+
+In addition to the 7 original trees (one per color), three new shapes are
+defined per color for a total of **28 tree features** plus **35 feature
+rules**:
+
+| Feature family | Identifier pattern | Trunk height | Canopy offset | Spawn zone | Rate |
+| --- | --- | --- | --- | --- | --- |
+| Normal | `lars:neon_tree_<color>` | 4 – 7 | −3 to 0 | `lars_neon` biomes | 1 iter, 1/4 chance (existing rule) |
+| Dense | `lars:neon_tree_<color>` (reused) | same | same | `lars_neon_dense` biomes | 2 iter, 1/2 chance |
+| **Tall** *(new)* | `lars:neon_tree_tall_<color>` | 8 – 12 | −2 to 0 | `lars_neon_dense` | 1 iter, 1/4 chance |
+| **Giant** *(new)* | `lars:neon_tree_giant_<color>` | 13 – 18 | −4 to 0 | `lars_neon` (any) | 1 iter, 1/32 chance (rare) |
+| **Bush** *(new)* | `lars:neon_tree_bush_<color>` | 2 – 3 | −1 to +1 | `lars_neon` (any) | 2 iter, 1/3 chance (common) |
+
+Every variant grows on vanilla soils (`dirt`, `grass_block`, `podzol`,
+`mycelium`, `moss_block`, `snow`, `snow_layer`) and emits the same neon colour
+it's built from because it's made of the existing glowing log and leaf blocks.
+
+Feature JSON lives in `behavior_pack/features/`, placement rules in
+`behavior_pack/feature_rules/`. Both follow the
+[tree_feature reference](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/featuresreference/examples/featuretypes/minecrafttreefeature)
+and use `format_version 1.21.110`.
+
 ## Engine / Format Versions
 
 - Pack manifest `format_version`: `2`
-- Pack version: `1.0.18`
+- Pack version: `1.0.19`
 - Minimum engine version: `1.21.120` (Minecraft Bedrock v26.x launcher builds)
 - Block `format_version`: `1.21.100`
+- Recipe `format_version`: `1.20.10`
+- Feature / feature_rule `format_version`: `1.21.110`
 - `blocks.json` version: `[1, 1, 0]`

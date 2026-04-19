@@ -1,0 +1,15 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "lars:neon_chest_gray"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [ "AAA", "A A", "AAA" ],
+    "key": {
+      "A": { "item": "lars:neon_oak_planks_gray" }
+    },
+    "unlock": [ { "item": "lars:neon_oak_planks_gray" } ],
+    "result": { "item": "chest", "count": 1 }
+  }
+}
