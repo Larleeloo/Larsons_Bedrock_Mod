@@ -1,0 +1,48 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:tree_feature": {
+    "description": { "identifier": "lars:neon_tree_acacia_green" },
+    "acacia_trunk": {
+      "trunk_block": { "name": "lars:neon_oak_log_green" },
+      "trunk_width": 1,
+      "trunk_height": {
+        "base": 5,
+        "intervals": [ 2 ],
+        "min_height_for_canopy": 3
+      },
+      "trunk_lean": {
+        "allow_diagonal_growth": true,
+        "lean_height": { "range_min": 2, "range_max": 3 },
+        "lean_steps": { "range_min": 3, "range_max": 4 },
+        "lean_length": { "range_min": 1, "range_max": 2 }
+      },
+      "branches": {
+        "branch_length": 3,
+        "branch_position": {
+          "base": 4,
+          "intervals": [ 2 ]
+        },
+        "branch_canopy": {
+          "acacia_canopy": {
+            "leaf_block": { "name": "lars:neon_oak_leaves_green" },
+            "canopy_size": 2,
+            "simplify_canopy": false
+          }
+        }
+      }
+    },
+    "acacia_canopy": {
+      "leaf_block": { "name": "lars:neon_oak_leaves_green" },
+      "canopy_size": 3,
+      "simplify_canopy": false
+    },
+    "base_block": [ "minecraft:dirt" ],
+    "may_grow_on": [
+      "minecraft:dirt", "minecraft:grass_block", "minecraft:podzol",
+      "minecraft:mycelium", "minecraft:moss_block", "minecraft:red_sand",
+      "minecraft:sand"
+    ],
+    "may_replace": [ "minecraft:air", "lars:neon_oak_leaves_green" ],
+    "may_grow_through": [ "minecraft:air" ]
+  }
+}

@@ -296,12 +296,101 @@ Feature JSON lives in `behavior_pack/features/`, placement rules in
 [tree_feature reference](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/featuresreference/examples/featuretypes/minecrafttreefeature)
 and use `format_version 1.21.110`.
 
+## Neon Saplings (`lars:neon_oak_sapling_<color>`)
+
+Seven color-matched saplings — red, green, blue, yellow, magenta, cyan, gray —
+close the wood-cycle loop.
+
+| Property | Value |
+| --- | --- |
+| Identifier | `lars:neon_oak_sapling_<color>` |
+| Category | Nature |
+| Render | `alpha_test` (cross geometry `geometry.lars.sapling`) |
+| Collision | none |
+| Placement filter | dirt / grass / podzol / mycelium / moss / farmland (top face only) |
+| Light emission | 9 (all neon blocks glow, saplings are dimmer than logs/leaves) |
+| Mining time | instant |
+
+**Drops:** mining a matching `lars:neon_oak_leaves_<color>` has a ~5% chance
+to drop the same-color sapling and a ~2% chance to drop 1–2 sticks, wired
+through `behavior_pack/loot_tables/blocks/neon_oak_leaves_<color>.json`.
+
+**Growth:** the sapling grows into a neon tree through two paths:
+
+1. **Bone meal** — using bone meal on the sapling immediately picks a style
+   from the weighted pool below and places the matching feature.
+2. **Natural** — `behavior_pack/scripts/main.js` runs a 20-second
+   (`runInterval(…, 400)`) scan around each player, rolling a small chance
+   for any nearby sapling to mature. No per-block random-ticking required.
+
+The script-side style pool (see `TREE_STYLES` in `scripts/main.js`):
+
+| Style | Weight | Shape |
+| --- | --- | --- |
+| `neon_tree_<color>` | 4 | Normal oak |
+| `neon_tree_tall_<color>` | 2 | Birch-tall |
+| `neon_tree_bush_<color>` | 2 | Short bush |
+| `neon_tree_fancy_<color>` | 2 | Bushy branches (fancy trunk + canopy) |
+| `neon_tree_pine_<color>` | 1 | Tall pine cone |
+| `neon_tree_spruce_<color>` | 1 | Layered spruce |
+| `neon_tree_acacia_<color>` | 1 | Savanna umbrella |
+| `neon_tree_cherry_<color>` | 1 | Cherry-style wide crown |
+| `neon_tree_roofed_<color>` | 1 | Dark-oak-style flat roof |
+| `neon_tree_giant_<color>` | 1 | Massive trunk (13–18) |
+
+If the chosen feature fails to place (terrain blockage, submerged, etc.) the
+script falls back to the plain `neon_tree_<color>` so the player still sees a
+tree appear.
+
+## Furnace Smelting (Neon Logs → Charcoal)
+
+7 furnace recipes, one per color, in `behavior_pack/recipes/neon_smelt_log_<color>.json`.
+Each accepts `lars:neon_oak_log_<color>` as input and outputs vanilla
+`charcoal` — valid at `furnace`, `smoker`, and `blast_furnace` stations. This
+lets the glowing logs feed the normal coal economy.
+
+## Extra Tree Canopy / Trunk Styles
+
+Following the
+[`minecraft:tree_feature` reference](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/featuresreference/examples/featuretypes/minecrafttreefeature),
+every canopy and trunk family documented there now has a neon variant per
+color. Each row produces one feature JSON per color (7 features, 7 feature
+rules) in `behavior_pack/features/` and `behavior_pack/feature_rules/`:
+
+| Identifier family | Trunk type | Canopy type | Size / shape | Spawn biome | Rate |
+| --- | --- | --- | --- | --- | --- |
+| `lars:neon_tree_fancy_<color>` | `fancy_trunk` (width 1) | `fancy_canopy` (r=4, h=4) + branch canopies | Bushy oak with branches | `lars_neon` | 1/6 |
+| `lars:neon_tree_pine_<color>` | `trunk` (8–13) | `pine_canopy` (r=3) | Tall conical pine | `lars_neon_dense` | 1/5 |
+| `lars:neon_tree_spruce_<color>` | `trunk` (7–10) | `spruce_canopy` (r=3, layered) | Layered spruce | `lars_neon_dense` | 1/5 |
+| `lars:neon_tree_mega_<color>` | `mega_trunk` (2×2, ~12–20) | `mega_canopy` (r=5) | 2-wide trunk, huge crown | `lars_neon` | 1/48 |
+| `lars:neon_tree_mega_pine_<color>` | `mega_trunk` (2×2, ~14–22) | `mega_pine_canopy` (r=4) | 2-wide mega pine | `lars_neon_dense` | 1/64 |
+| `lars:neon_tree_acacia_<color>` | `acacia_trunk` + diagonal lean | `acacia_canopy` (size 3) | Savanna umbrella shape | `lars_neon` | 1/6 |
+| `lars:neon_tree_cherry_<color>` | `cherry_trunk` w/ multi-branch weights | `cherry_canopy` | Cherry wide crown | `lars_neon` | 1/10 |
+| `lars:neon_tree_roofed_<color>` | `trunk` (6–8) | `roofed_canopy` (inner 2 / outer 3) | Dark-oak flat roof | `lars_neon_dense` | 1/5 |
+| `lars:neon_tree_mangrove_<color>` | `mangrove_trunk` + branch mangrove canopies | `mangrove_canopy` (leaf_placement_attempts 60) | Mangrove with aerial foliage | `lars_neon` | 1/16 |
+
+Combined with the existing **normal / tall / giant / bush** variants and the
+original dense rule, the biome tags now cover **13 distinct tree shapes per
+color = 91 tree feature files** and **98 feature rules**.
+
+## Scripting API
+
+`behavior_pack/scripts/main.js` now registers as a `script` module in the
+behavior pack manifest (depends on `@minecraft/server` 1.14.0). It handles:
+
+- Custom `lars:neon_dimension` registration (pre-existing).
+- Script events `lars:neon` / `lars:overworld` for the teleport shortcuts.
+- `world.afterEvents.playerInteractWithBlock` — bone meal → sapling growth.
+- `system.runInterval(…, 400)` — occasional natural sapling growth near
+  players.
+
 ## Engine / Format Versions
 
 - Pack manifest `format_version`: `2`
-- Pack version: `1.0.19`
+- Pack version: `1.0.20`
 - Minimum engine version: `1.21.120` (Minecraft Bedrock v26.x launcher builds)
 - Block `format_version`: `1.21.100`
 - Recipe `format_version`: `1.20.10`
 - Feature / feature_rule `format_version`: `1.21.110`
+- Script API: `@minecraft/server` `1.14.0`
 - `blocks.json` version: `[1, 1, 0]`

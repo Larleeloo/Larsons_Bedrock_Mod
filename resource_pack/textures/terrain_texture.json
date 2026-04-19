@@ -102,6 +102,27 @@
     },
     "runic_stone_bricks": {
       "textures": "textures/blocks/runic_stone_bricks"
+    },
+    "neon_oak_sapling_red": {
+      "textures": "textures/blocks/neon_oak_sapling_red"
+    },
+    "neon_oak_sapling_green": {
+      "textures": "textures/blocks/neon_oak_sapling_green"
+    },
+    "neon_oak_sapling_blue": {
+      "textures": "textures/blocks/neon_oak_sapling_blue"
+    },
+    "neon_oak_sapling_yellow": {
+      "textures": "textures/blocks/neon_oak_sapling_yellow"
+    },
+    "neon_oak_sapling_magenta": {
+      "textures": "textures/blocks/neon_oak_sapling_magenta"
+    },
+    "neon_oak_sapling_cyan": {
+      "textures": "textures/blocks/neon_oak_sapling_cyan"
+    },
+    "neon_oak_sapling_gray": {
+      "textures": "textures/blocks/neon_oak_sapling_gray"
     }
   }
 }

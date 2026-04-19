@@ -81,5 +81,26 @@
   },
   "lars:runic_stone_bricks": {
     "sound": "stone"
+  },
+  "lars:neon_oak_sapling_red": {
+    "sound": "grass"
+  },
+  "lars:neon_oak_sapling_green": {
+    "sound": "grass"
+  },
+  "lars:neon_oak_sapling_blue": {
+    "sound": "grass"
+  },
+  "lars:neon_oak_sapling_yellow": {
+    "sound": "grass"
+  },
+  "lars:neon_oak_sapling_magenta": {
+    "sound": "grass"
+  },
+  "lars:neon_oak_sapling_cyan": {
+    "sound": "grass"
+  },
+  "lars:neon_oak_sapling_gray": {
+    "sound": "grass"
   }
 }

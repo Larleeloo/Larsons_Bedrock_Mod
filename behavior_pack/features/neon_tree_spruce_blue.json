@@ -1,0 +1,26 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:tree_feature": {
+    "description": { "identifier": "lars:neon_tree_spruce_blue" },
+    "trunk": {
+      "trunk_block": { "name": "lars:neon_oak_log_blue" },
+      "trunk_height": { "range_min": 7, "range_max": 10 },
+      "can_be_submerged": false
+    },
+    "spruce_canopy": {
+      "leaf_block": { "name": "lars:neon_oak_leaves_blue" },
+      "canopy_offset": { "min": -3, "max": 0 },
+      "lower_offset": 1,
+      "upper_offset": 2,
+      "max_radius": 3
+    },
+    "base_block": [ "minecraft:dirt" ],
+    "may_grow_on": [
+      "minecraft:dirt", "minecraft:grass_block", "minecraft:podzol",
+      "minecraft:mycelium", "minecraft:moss_block",
+      "minecraft:snow", "minecraft:snow_layer"
+    ],
+    "may_replace": [ "minecraft:air", "lars:neon_oak_leaves_blue" ],
+    "may_grow_through": [ "minecraft:air" ]
+  }
+}

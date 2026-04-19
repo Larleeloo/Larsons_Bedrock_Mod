@@ -1,0 +1,23 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:feature_rules": {
+    "description": {
+      "identifier": "lars:neon_tree_spruce_blue_rule",
+      "places_feature": "lars:neon_tree_spruce_blue"
+    },
+    "conditions": {
+      "placement_pass": "surface_pass",
+      "minecraft:biome_filter": {
+        "test": "has_biome_tag", "operator": "==", "value": "lars_neon_dense"
+      }
+    },
+    "distribution": {
+      "iterations": 1,
+      "scatter_chance": { "numerator": 1, "denominator": 5 },
+      "coordinate_eval_order": "xzy",
+      "x": { "distribution": "uniform", "extent": [ 0, 15 ] },
+      "y": "query.heightmap(variable.worldx, variable.worldz)",
+      "z": { "distribution": "uniform", "extent": [ 0, 15 ] }
+    }
+  }
+}
