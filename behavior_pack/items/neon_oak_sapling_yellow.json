@@ -1,0 +1,13 @@
+{
+  "format_version": "1.20.50",
+  "minecraft:item": {
+    "description": {
+      "identifier": "lars:neon_oak_sapling_yellow"
+    },
+    "components": {
+      "minecraft:fuel": {
+        "duration": 5
+      }
+    }
+  }
+}

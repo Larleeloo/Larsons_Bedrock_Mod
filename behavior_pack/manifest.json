@@ -1,13 +1,13 @@
 {
   "format_version": 2,
   "header": {
-    "description": "Larson's Glow Block v1.0.22 - Bump neon wood block format_version to 1.21.120 and set fuel duration to 3 so the minecraft:fuel component registers and blocks load.",
-    "name": "Larson's Glow Block BP v1.0.22",
+    "description": "Larson's Glow Block v1.0.23 - Remove minecraft:fuel from neon wood blocks: Bedrock rejects it as a block component, which was preventing the blocks from registering at all.",
+    "name": "Larson's Glow Block BP v1.0.23",
     "uuid": "64f33380-afbf-425b-ba04-0271539fb1ed",
     "version": [
       1,
       0,
-      22
+      23
     ],
     "min_engine_version": [
       1,
@@ -23,7 +23,7 @@
       "version": [
         1,
         0,
-        22
+        23
       ]
     },
     {
@@ -35,7 +35,7 @@
       "version": [
         1,
         0,
-        22
+        23
       ]
     }
   ],
@@ -45,7 +45,7 @@
       "version": [
         1,
         0,
-        22
+        23
       ]
     },
     {

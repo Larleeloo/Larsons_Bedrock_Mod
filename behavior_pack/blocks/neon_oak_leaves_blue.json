@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.120",
+  "format_version": "1.21.100",
   "minecraft:block": {
     "description": {
       "identifier": "lars:neon_oak_leaves_blue",
@@ -31,10 +31,7 @@
         "catch_chance_modifier": 30,
         "destroy_chance_modifier": 60
       },
-      "minecraft:loot": "loot_tables/blocks/neon_oak_leaves_blue.json",
-      "minecraft:fuel": {
-        "duration": 3
-      }
+      "minecraft:loot": "loot_tables/blocks/neon_oak_leaves_blue.json"
     }
   }
 }
