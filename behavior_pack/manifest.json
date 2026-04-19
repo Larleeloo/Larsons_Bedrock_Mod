@@ -1,13 +1,13 @@
 {
   "format_version": 2,
   "header": {
-    "description": "Larson's Glow Block v1.0.19 - Add neon wood crafting recipes (planks, sticks, tools, chest, crafting table) and three new tree variants (tall, giant, bush) spawning across neon biomes.",
-    "name": "Larson's Glow Block BP v1.0.19",
+    "description": "Larson's Glow Block v1.0.20 - Add furnace smelting, neon saplings (bone-mealable, drop from leaves), and 8 additional tree styles (fancy, pine, spruce, mega, mega-pine, acacia, cherry, roofed, mangrove) per color.",
+    "name": "Larson's Glow Block BP v1.0.20",
     "uuid": "64f33380-afbf-425b-ba04-0271539fb1ed",
     "version": [
       1,
       0,
-      19
+      20
     ],
     "min_engine_version": [
       1,
@@ -23,7 +23,19 @@
       "version": [
         1,
         0,
-        19
+        20
+      ]
+    },
+    {
+      "description": "Sapling growth + dimension teleport scripts.",
+      "type": "script",
+      "language": "javascript",
+      "entry": "scripts/main.js",
+      "uuid": "b4e6f217-2c4c-4a7e-9c2f-90ae1b3f93a2",
+      "version": [
+        1,
+        0,
+        20
       ]
     }
   ],
@@ -33,8 +45,12 @@
       "version": [
         1,
         0,
-        19
+        20
       ]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "1.14.0"
     }
   ]
 }

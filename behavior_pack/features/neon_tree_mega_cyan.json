@@ -1,0 +1,33 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:tree_feature": {
+    "description": { "identifier": "lars:neon_tree_mega_cyan" },
+    "mega_trunk": {
+      "trunk_block": { "name": "lars:neon_oak_log_cyan" },
+      "trunk_width": 2,
+      "trunk_height": {
+        "base": 12,
+        "intervals": [ 4, 4 ]
+      },
+      "trunk_decoration": {
+        "decoration_block": { "name": "lars:neon_oak_leaves_cyan" },
+        "num_steps": 2,
+        "step_direction": "out"
+      }
+    },
+    "mega_canopy": {
+      "leaf_block": { "name": "lars:neon_oak_leaves_cyan" },
+      "canopy_offset": { "min": -4, "max": 0 },
+      "base_radius": 5,
+      "core_width": 2,
+      "simplify_canopy": false
+    },
+    "base_block": [ "minecraft:dirt" ],
+    "may_grow_on": [
+      "minecraft:dirt", "minecraft:grass_block", "minecraft:podzol",
+      "minecraft:mycelium", "minecraft:moss_block"
+    ],
+    "may_replace": [ "minecraft:air", "lars:neon_oak_leaves_cyan" ],
+    "may_grow_through": [ "minecraft:air" ]
+  }
+}

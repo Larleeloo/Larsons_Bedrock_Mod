@@ -1,0 +1,26 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:tree_feature": {
+    "description": { "identifier": "lars:neon_tree_roofed_magenta" },
+    "trunk": {
+      "trunk_block": { "name": "lars:neon_oak_log_magenta" },
+      "trunk_height": { "range_min": 6, "range_max": 8 },
+      "can_be_submerged": false
+    },
+    "roofed_canopy": {
+      "leaf_block": { "name": "lars:neon_oak_leaves_magenta" },
+      "canopy_offset": { "min": -1, "max": 0 },
+      "canopy_height": 2,
+      "core_width": 1,
+      "outer_radius": 3,
+      "inner_radius": 2
+    },
+    "base_block": [ "minecraft:dirt" ],
+    "may_grow_on": [
+      "minecraft:dirt", "minecraft:grass_block", "minecraft:podzol",
+      "minecraft:mycelium", "minecraft:moss_block"
+    ],
+    "may_replace": [ "minecraft:air", "lars:neon_oak_leaves_magenta" ],
+    "may_grow_through": [ "minecraft:air" ]
+  }
+}

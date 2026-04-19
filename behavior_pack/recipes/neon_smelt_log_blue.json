@@ -1,0 +1,12 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "lars:neon_smelt_log_blue"
+    },
+    "unlock": [ { "item": "lars:neon_oak_log_blue" } ],
+    "tags": [ "furnace", "smoker", "blast_furnace" ],
+    "input": { "item": "lars:neon_oak_log_blue" },
+    "output": "charcoal"
+  }
+}
