@@ -1,13 +1,13 @@
 {
   "format_version": 2,
   "header": {
-    "description": "Larson's Glow Block v1.0.27 - Engine 1.21.120 compat: block format_version -> 1.21.120, @minecraft/server -> 2.0.0 (V2 scripting), switch grow path to sync runCommand since runCommandAsync was removed in V2, and wrap all subscribers in try/catch so a broken subscribe cannot crash the world.",
-    "name": "Larson's Glow Block BP v1.0.27",
+    "description": "Larson's Glow Block v1.0.28 - Actual root cause for the 'Unexpected version for the loaded data' spam: resource_pack/blocks.json was using the legacy array-form format_version [1,1,0]; current Mojang samples use the string form \"1.21.40\". Switched to the string form and the behavior-pack block files now register.",
+    "name": "Larson's Glow Block BP v1.0.28",
     "uuid": "64f33380-afbf-425b-ba04-0271539fb1ed",
     "version": [
       1,
       0,
-      27
+      28
     ],
     "min_engine_version": [
       1,
@@ -23,7 +23,7 @@
       "version": [
         1,
         0,
-        27
+        28
       ]
     },
     {
@@ -35,7 +35,7 @@
       "version": [
         1,
         0,
-        27
+        28
       ]
     }
   ],
@@ -45,7 +45,7 @@
       "version": [
         1,
         0,
-        27
+        28
       ]
     },
     {

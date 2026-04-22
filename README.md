@@ -398,12 +398,46 @@ behavior pack manifest (depends on `@minecraft/server` 1.14.0). It handles:
 ## Engine / Format Versions
 
 - Pack manifest `format_version`: `2`
-- Pack version: `1.0.27`
+- Pack version: `1.0.28`
 - Minimum engine version: `1.21.120` (Minecraft Bedrock v26.x launcher builds)
 - Block `format_version`: `1.21.120`
+- Resource-pack `blocks.json` `format_version`: `"1.21.40"` (string form)
 - Recipe `format_version`: `1.20.10`
 - Feature / feature_rule `format_version`: `1.21.110`
-- Script API: `@minecraft/server` `2.0.0` (Scripting V2)
+- Script API: `@minecraft/server` `2.0.0` (Scripting V2; auto-promoted to 2.6.0 by the engine at runtime)
+
+## v1.0.28 — Real Root Cause of "Unexpected version for the loaded data"
+
+v1.0.25 / v1.0.27 kept bouncing the **behavior-pack** block
+`format_version` (1.21.80 / 1.21.100 / 1.21.120) and each attempt still
+logged `[Blocks][error] ... Unexpected version for the loaded data` on
+every block. The string wasn't the cause.
+
+The engine was rejecting the whole file upstream because the **resource
+pack's `blocks.json`** at the pack root used the **legacy array-form**
+`format_version`:
+
+```json
+"format_version": [ 1, 1, 0 ]
+```
+
+Current `Mojang/bedrock-samples/resource_pack/blocks.json` uses the
+**string form**:
+
+```json
+"format_version": "1.21.40"
+```
+
+Once that mismatch exists, the block-definitions pipeline can't bind
+RP sounds/textures to the BP identifiers, so every block in the
+behavior pack reports the same generic "unexpected version" error.
+
+- **`resource_pack/blocks.json`**: `format_version` changed from
+  `[1, 1, 0]` → `"1.21.40"` (string, matches Mojang's current vanilla
+  sample). No other edits to this file.
+- Behavior-pack block `format_version` left at `1.21.120` (from
+  v1.0.27). That was never the cause, but 1.21.120 matches the engine
+  and is what the v1.0.27 release shipped, so no churn from reverting.
 
 ## v1.0.27 — Engine 1.21.120 Compatibility + Crash Fix
 
