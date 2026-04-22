@@ -1,13 +1,13 @@
 {
   "format_version": 2,
   "header": {
-    "description": "Larson's Glow Block v1.0.25 - Block format_version reverted to 1.21.80 (1.21.100 was rejected by the engine as 'Unexpected version for the loaded data'). Stripped invalid canopy_height/canopy_radius from acacia/cherry/fancy/mangrove basic-canopy trees, and added required canopy_height (+ radius_step_modifier for pine) to mega_canopy and mega_pine_canopy.",
-    "name": "Larson's Glow Block BP v1.0.25",
+    "description": "Larson's Glow Block v1.0.26 - Sapling growth fix: bump @minecraft/server 1.14.0 -> 1.17.0 so the script module actually loads, swap runCommand for runCommandAsync, consume bone meal on successful grow, and guard the interact event with isFirstEvent.",
+    "name": "Larson's Glow Block BP v1.0.26",
     "uuid": "64f33380-afbf-425b-ba04-0271539fb1ed",
     "version": [
       1,
       0,
-      25
+      26
     ],
     "min_engine_version": [
       1,
@@ -23,7 +23,7 @@
       "version": [
         1,
         0,
-        25
+        26
       ]
     },
     {
@@ -35,7 +35,7 @@
       "version": [
         1,
         0,
-        25
+        26
       ]
     }
   ],
@@ -45,12 +45,12 @@
       "version": [
         1,
         0,
-        25
+        26
       ]
     },
     {
       "module_name": "@minecraft/server",
-      "version": "1.14.0"
+      "version": "1.17.0"
     }
   ]
 }

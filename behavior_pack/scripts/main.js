@@ -31,7 +31,24 @@ function pickTreeStyle() {
   return "";
 }
 
-function growSapling(block) {
+// Fire-and-forget placefeature that tolerates either the sync or async API:
+// @minecraft/server 1.x has dimension.runCommandAsync; some builds removed
+// the synchronous runCommand from script context.
+function runPlacefeature(dim, feature, x, y, z) {
+  const cmd = `placefeature ${feature} ${x} ${y} ${z}`;
+  try {
+    if (typeof dim.runCommandAsync === "function") {
+      return dim.runCommandAsync(cmd).catch(() => undefined);
+    }
+    if (typeof dim.runCommand === "function") {
+      dim.runCommand(cmd);
+      return Promise.resolve();
+    }
+  } catch (_) {}
+  return Promise.reject(new Error("no runCommand available"));
+}
+
+async function growSapling(block) {
   if (!block || !block.typeId.startsWith(SAPLING_PREFIX)) return false;
   const color = block.typeId.slice(SAPLING_PREFIX.length);
   if (!COLORS.includes(color)) return false;
@@ -41,16 +58,42 @@ function growSapling(block) {
   // Clear sapling first so placefeature has air to build through.
   try { block.setType("minecraft:air"); } catch (_) {}
   try {
-    block.dimension.runCommand(`placefeature ${feature} ${x} ${y} ${z}`);
-  } catch (e) {
-    // Fall back to the plain style if the exotic style fails for any reason
-    // (e.g. terrain blockage). The block is already cleared so the player
-    // still gets visible feedback.
+    await runPlacefeature(block.dimension, feature, x, y, z);
+    return true;
+  } catch (_) {
+    // Fall back to the plain style if the exotic style fails (terrain
+    // blockage, unregistered feature, etc.). Block is already cleared so
+    // the player still gets visible feedback.
     try {
-      block.dimension.runCommand(`placefeature lars:neon_tree_${color} ${x} ${y} ${z}`);
-    } catch (_) {}
+      await runPlacefeature(block.dimension, `lars:neon_tree_${color}`, x, y, z);
+      return true;
+    } catch (_) { return false; }
   }
-  return true;
+}
+
+function isCreative(player) {
+  try {
+    const gm = player.getGameMode?.();
+    if (gm === undefined) return false;
+    return String(gm).toLowerCase().includes("creative");
+  } catch (_) { return false; }
+}
+
+function consumeBoneMeal(player) {
+  if (isCreative(player)) return;
+  try {
+    const inv = player.getComponent("minecraft:inventory");
+    if (!inv || !inv.container) return;
+    const slot = player.selectedSlotIndex ?? 0;
+    const item = inv.container.getItem(slot);
+    if (!item || item.typeId !== "minecraft:bone_meal") return;
+    if (item.amount > 1) {
+      item.amount -= 1;
+      inv.container.setItem(slot, item);
+    } else {
+      inv.container.setItem(slot, undefined);
+    }
+  } catch (_) {}
 }
 
 // Guard the startup event: on older runtimes system.beforeEvents or .startup
@@ -79,11 +122,16 @@ system.afterEvents.scriptEventReceive.subscribe((event) => {
 });
 
 // Bone-meal a neon sapling -> instantly grow one of the neon tree features.
-world.afterEvents.playerInteractWithBlock.subscribe((event) => {
-  const { block, itemStack } = event;
+world.afterEvents.playerInteractWithBlock.subscribe(async (event) => {
+  // playerInteractWithBlock can fire repeatedly while the button is held;
+  // only act on the initial press. isFirstEvent may be undefined on older
+  // API revisions, so only filter when it's explicitly false.
+  if (event.isFirstEvent === false) return;
+  const { block, itemStack, player } = event;
   if (!itemStack || itemStack.typeId !== "minecraft:bone_meal") return;
   if (!block || !block.typeId.startsWith(SAPLING_PREFIX)) return;
-  growSapling(block);
+  const grew = await growSapling(block);
+  if (grew && player) consumeBoneMeal(player);
 });
 
 // Slow natural growth: every 20s, scan a small window around each player and
