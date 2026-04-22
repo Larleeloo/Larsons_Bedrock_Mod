@@ -398,12 +398,41 @@ behavior pack manifest (depends on `@minecraft/server` 1.14.0). It handles:
 ## Engine / Format Versions
 
 - Pack manifest `format_version`: `2`
-- Pack version: `1.0.26`
+- Pack version: `1.0.27`
 - Minimum engine version: `1.21.120` (Minecraft Bedrock v26.x launcher builds)
-- Block `format_version`: `1.21.80`
+- Block `format_version`: `1.21.120`
 - Recipe `format_version`: `1.20.10`
 - Feature / feature_rule `format_version`: `1.21.110`
-- Script API: `@minecraft/server` `1.17.0`
+- Script API: `@minecraft/server` `2.0.0` (Scripting V2)
+
+## v1.0.27 — Engine 1.21.120 Compatibility + Crash Fix
+
+v1.0.26 crashed the world on load because `@minecraft/server 1.17.0`
+isn't a native module on the 1.21.120 engine — the 1.x → 2.x API
+cutover happens at that engine version. v1.0.25's `1.21.80` block
+format_version was *also* being rejected (`Unexpected version for the
+loaded data`) on the same engine, even though it was valid on older
+builds. Corrected both and hardened every script subscribe.
+
+- **Block `format_version` `1.21.80` → `1.21.120`** on all 33 block
+  JSONs so the version string matches the engine's current schema
+  whitelist.
+- **`@minecraft/server` `1.17.0` → `2.0.0`**. 2.0.0 is the
+  engine-matched stable module for 1.21.120 (per npm dist-tags and
+  Microsoft Learn V2 overview). `1.17.0` was only ever a published
+  type package; the native runtime for 1.17 was never shipped.
+- **Scripting V2 migration in `scripts/main.js`**:
+  - `dimension.runCommandAsync` was removed in V2 → use sync
+    `dimension.runCommand`, which returns a `CommandResult` with
+    `successCount`. The placefeature helper probes both shapes so the
+    script also still works on a 1.x runtime.
+  - Grow pipeline is now fully synchronous, removing the
+    promise-returning subscriber pattern (some V2 builds reject async
+    event handlers).
+  - Every `.subscribe` and `system.runInterval` is wrapped in a
+    top-level `try/catch`, and every callback body has its own
+    `try/catch`, so any future API mismatch degrades to a silent
+    no-op instead of failing the world load.
 
 ## v1.0.26 — Sapling Growth Fix
 
