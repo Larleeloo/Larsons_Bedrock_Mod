@@ -398,12 +398,38 @@ behavior pack manifest (depends on `@minecraft/server` 1.14.0). It handles:
 ## Engine / Format Versions
 
 - Pack manifest `format_version`: `2`
-- Pack version: `1.0.24`
+- Pack version: `1.0.25`
 - Minimum engine version: `1.21.120` (Minecraft Bedrock v26.x launcher builds)
-- Block `format_version`: `1.21.100`
+- Block `format_version`: `1.21.80`
 - Recipe `format_version`: `1.20.10`
 - Feature / feature_rule `format_version`: `1.21.110`
 - Script API: `@minecraft/server` `1.14.0`
+
+## v1.0.25 — Engine-Rejected Schema Fixes
+
+Content-log diagnosis + fixes for four classes of errors:
+
+- **Block `Unexpected version for the loaded data`** (33 files). Engine
+  rejected `format_version 1.21.100` as an unrecognized schema version.
+  Reverted every `behavior_pack/blocks/*.json` to the last known-good
+  version `1.21.80`, which covers every component the mod actually uses
+  (`menu_category`, `placement_position` trait, `map_color`,
+  `material_instances`, `flammable`, permutations/transformations).
+- **Basic-canopy `canopy_height` / `canopy_radius` rejected** (28 files:
+  acacia, cherry, fancy, mangrove × 7 colors). The basic
+  `canopy` child only accepts `leaf_block`, `canopy_offset`,
+  `min_width`, and `variation_chance`. The extra fields were stripped;
+  the simple-canopy shape is unchanged otherwise.
+- **`mega_canopy` / `mega_pine_canopy` missing required children**
+  (14 files: mega, mega_pine × 7 colors). `mega_canopy` requires
+  `canopy_height`; `mega_pine_canopy` requires both `canopy_height`
+  and `radius_step_modifier`. Added sensible defaults
+  (`canopy_height: 13`, `radius_step_modifier: 0.5`).
+- **`Texture/wolf_collar_baby_mers`** is an engine-side inform-level
+  lookup for a vanilla texture that doesn't ship with the base resources.
+  It is unrelated to this mod (no wolf references exist in either pack),
+  is non-fatal, and **nothing needs to change** here — it will print for
+  any world on the affected Minecraft build.
 
 ## v1.0.24 — Inventory + Tree Schema Fixes
 

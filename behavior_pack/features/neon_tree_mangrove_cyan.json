@@ -21,9 +21,7 @@
       "canopy_offset": {
         "min": -2,
         "max": 0
-      },
-      "canopy_height": 3,
-      "canopy_radius": 3
+      }
     },
     "base_block": [
       "minecraft:dirt"

@@ -22,7 +22,9 @@
         "name": "lars:neon_oak_leaves_yellow"
       },
       "base_radius": 4,
-      "core_width": 2
+      "core_width": 2,
+      "canopy_height": 13,
+      "radius_step_modifier": 0.5
     },
     "base_block": [
       "minecraft:dirt"
