@@ -23,7 +23,8 @@
       },
       "base_radius": 5,
       "core_width": 2,
-      "simplify_canopy": false
+      "simplify_canopy": false,
+      "canopy_height": 13
     },
     "base_block": [
       "minecraft:dirt"
