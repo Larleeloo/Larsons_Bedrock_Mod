@@ -398,13 +398,32 @@ behavior pack manifest (depends on `@minecraft/server` 1.14.0). It handles:
 ## Engine / Format Versions
 
 - Pack manifest `format_version`: `2`
-- Pack version: `1.0.28`
+- Pack version: `1.0.29`
 - Minimum engine version: `1.21.120` (Minecraft Bedrock v26.x launcher builds)
-- Block `format_version`: `1.21.120`
+- Block `format_version`: `1.21.40`
 - Resource-pack `blocks.json` `format_version`: `"1.21.40"` (string form)
 - Recipe `format_version`: `1.20.10`
 - Feature / feature_rule `format_version`: `1.21.110`
 - Script API: `@minecraft/server` `2.0.0` (Scripting V2; auto-promoted to 2.6.0 by the engine at runtime)
+
+## v1.0.29 — Block format_version bisect
+
+v1.0.28's `blocks.json` fix didn't resolve the block registration
+errors — every block still logs `Unexpected version for the loaded
+data`. BOM encoding is ruled out (`file` reports plain JSON text,
+no `ef bb bf` leading bytes). All 33 block JSONs parse cleanly.
+
+- **Block `format_version` 1.21.120 → 1.21.40** to match the RP
+  blocks.json string version and the known-good value from the
+  pack's earlier working commits (`3b70d85`, `13dbb52`). The
+  research agent's list of "valid" versions turned out not to match
+  this user's engine, so bisecting to the historically-working one.
+- **Added `behavior_pack/blocks/diag_test.json`** — a single-property
+  minimum-schema block (`minecraft:map_color` only). Purpose: if the
+  existing 33 blocks error but `diag_test` does NOT, the regression
+  is inside a component body we're using on the real blocks. If
+  `diag_test` errors too, the cause is upstream (manifest, RP-side,
+  pack registration). We'll delete this file after the next log.
 
 ## v1.0.28 — Real Root Cause of "Unexpected version for the loaded data"
 

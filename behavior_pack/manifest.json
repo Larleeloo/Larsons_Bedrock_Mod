@@ -1,13 +1,13 @@
 {
   "format_version": 2,
   "header": {
-    "description": "Larson's Glow Block v1.0.28 - Actual root cause for the 'Unexpected version for the loaded data' spam: resource_pack/blocks.json was using the legacy array-form format_version [1,1,0]; current Mojang samples use the string form \"1.21.40\". Switched to the string form and the behavior-pack block files now register.",
-    "name": "Larson's Glow Block BP v1.0.28",
+    "description": "Larson's Glow Block v1.0.29 - Block format_version 1.21.120 -> 1.21.40 (matches the RP blocks.json version and is known-good per git history). Added blocks/diag_test.json, a single-property minimum-schema block, so we can tell whether the 'Unexpected version' error is caused by format_version or a component body.",
+    "name": "Larson's Glow Block BP v1.0.29",
     "uuid": "64f33380-afbf-425b-ba04-0271539fb1ed",
     "version": [
       1,
       0,
-      28
+      29
     ],
     "min_engine_version": [
       1,
@@ -23,7 +23,7 @@
       "version": [
         1,
         0,
-        28
+        29
       ]
     },
     {
@@ -35,7 +35,7 @@
       "version": [
         1,
         0,
-        28
+        29
       ]
     }
   ],
@@ -45,7 +45,7 @@
       "version": [
         1,
         0,
-        28
+        29
       ]
     },
     {
