@@ -18,9 +18,7 @@
       "minecraft:map_color": {
         "color": "#2A2A2A"
       },
-      "minecraft:geometry": {
-        "identifier": "minecraft:geometry.full_block"
-      },
+      "minecraft:geometry": "minecraft:geometry.full_block",
       "minecraft:material_instances": {
         "*": {
           "texture": "dark_stone_rune",

@@ -1,13 +1,13 @@
 {
   "format_version": 2,
   "header": {
-    "description": "Larson's Glow Block v1.0.30 - Block format_version 1.21.40 -> 1.21.120 (real schema-version milestone per Mojang docs; 1.21.40 is not a milestone). Converted minecraft:geometry from bare-string form to {\"identifier\": ...} object form on all 33 blocks. Removed the diag_test block (no geometry/material_instances was a likely crash trigger).",
-    "name": "Larson's Glow Block BP v1.0.30",
+    "description": "Larson's Glow Block v1.0.31 - Reverted minecraft:geometry to bare-string form (Microsoft minecraft-samples/custom_blocks uses bare strings, and the object form may have caused the v1.0.30 world-load crash). RP blocks.json format_version aligned with Microsoft's sample (\"1.19.30\"). Block format_version stays at 1.21.120.",
+    "name": "Larson's Glow Block BP v1.0.31",
     "uuid": "64f33380-afbf-425b-ba04-0271539fb1ed",
     "version": [
       1,
       0,
-      30
+      31
     ],
     "min_engine_version": [
       1,
@@ -23,7 +23,7 @@
       "version": [
         1,
         0,
-        30
+        31
       ]
     },
     {
@@ -35,7 +35,7 @@
       "version": [
         1,
         0,
-        30
+        31
       ]
     }
   ],
@@ -45,7 +45,7 @@
       "version": [
         1,
         0,
-        30
+        31
       ]
     },
     {
