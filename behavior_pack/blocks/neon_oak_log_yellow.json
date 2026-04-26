@@ -26,9 +26,7 @@
       "minecraft:map_color": {
         "color": "#FFFF20"
       },
-      "minecraft:geometry": {
-        "identifier": "minecraft:geometry.full_block"
-      },
+      "minecraft:geometry": "minecraft:geometry.full_block",
       "minecraft:material_instances": {
         "*": {
           "texture": "neon_oak_log_yellow",

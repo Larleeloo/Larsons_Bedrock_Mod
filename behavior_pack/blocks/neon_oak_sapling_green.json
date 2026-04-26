@@ -32,9 +32,7 @@
           12
         ]
       },
-      "minecraft:geometry": {
-        "identifier": "geometry.lars.sapling"
-      },
+      "minecraft:geometry": "geometry.lars.sapling",
       "minecraft:material_instances": {
         "*": {
           "texture": "neon_oak_sapling_green",

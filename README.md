@@ -398,13 +398,39 @@ behavior pack manifest (depends on `@minecraft/server` 1.14.0). It handles:
 ## Engine / Format Versions
 
 - Pack manifest `format_version`: `2`
-- Pack version: `1.0.30`
+- Pack version: `1.0.31`
 - Minimum engine version: `1.21.120` (Minecraft Bedrock v26.x launcher builds)
 - Block `format_version`: `1.21.120`
-- Resource-pack `blocks.json` `format_version`: `"1.21.40"` (string form)
+- Resource-pack `blocks.json` `format_version`: `"1.19.30"` (matches Microsoft minecraft-samples)
 - Recipe `format_version`: `1.20.10`
 - Feature / feature_rule `format_version`: `1.21.110`
 - Script API: `@minecraft/server` `2.0.0` (Scripting V2; auto-promoted to 2.6.0 by the engine at runtime)
+
+## v1.0.31 — Match Microsoft minecraft-samples patterns
+
+Direct comparison against the current Microsoft minecraft-samples
+custom_blocks pack revealed two further mismatches:
+
+- Their BP block JSON (`die.json`) uses **bare-string** geometry —
+  `"minecraft:geometry": "minecraft:geometry.full_block"` — not the
+  `{"identifier": ...}` object form. v1.0.30's object-form change
+  was probably the trigger for the v1.0.30 world-load crash.
+- Their RP `blocks.json` uses `"format_version": "1.19.30"`, not the
+  vanilla `"1.21.40"`. Both are documented as accepted, but matching
+  the working sample exactly removes one variable.
+
+Changes:
+- `minecraft:geometry` reverted to bare-string form on all 33 BP
+  blocks.
+- RP `blocks.json` `format_version`: `"1.21.40"` → `"1.19.30"`.
+- Block `format_version` stays at `1.21.120` (real milestone).
+
+This release is shaped to match the working Microsoft sample as
+closely as possible while keeping our extra components
+(menu_category, traits, permutations, light_dampening, flammable).
+If the engine still rejects the blocks, the next bisect step is to
+strip those extras one at a time on `glow_block.json` and find the
+exact component that's incompatible.
 
 ## v1.0.30 — Schema-milestone format_version + geometry object form
 
