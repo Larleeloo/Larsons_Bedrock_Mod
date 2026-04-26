@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.40",
+  "format_version": "1.21.120",
   "minecraft:block": {
     "description": {
       "identifier": "lars:neon_oak_sapling_gray",
@@ -32,7 +32,9 @@
           12
         ]
       },
-      "minecraft:geometry": "geometry.lars.sapling",
+      "minecraft:geometry": {
+        "identifier": "geometry.lars.sapling"
+      },
       "minecraft:material_instances": {
         "*": {
           "texture": "neon_oak_sapling_gray",

@@ -398,13 +398,42 @@ behavior pack manifest (depends on `@minecraft/server` 1.14.0). It handles:
 ## Engine / Format Versions
 
 - Pack manifest `format_version`: `2`
-- Pack version: `1.0.29`
+- Pack version: `1.0.30`
 - Minimum engine version: `1.21.120` (Minecraft Bedrock v26.x launcher builds)
-- Block `format_version`: `1.21.40`
+- Block `format_version`: `1.21.120`
 - Resource-pack `blocks.json` `format_version`: `"1.21.40"` (string form)
 - Recipe `format_version`: `1.20.10`
 - Feature / feature_rule `format_version`: `1.21.110`
 - Script API: `@minecraft/server` `2.0.0` (Scripting V2; auto-promoted to 2.6.0 by the engine at runtime)
+
+## v1.0.30 — Schema-milestone format_version + geometry object form
+
+v1.0.29 still errored with "Unexpected version for the loaded data"
+on every block at `format_version: "1.21.40"`, AND it crashed the
+world (the diagnostic block I added had no geometry / no
+material_instances — that was the crash). Two real findings from
+Mojang's `Blocks.html`:
+
+- The block schema bumps at **discrete milestones**, not every
+  `1.21.x`. Per the docs, the actual milestones are `1.21.30`,
+  `1.21.50`, `1.21.60`, `1.21.100`, `1.21.120`, `1.26.0`. `1.21.40`
+  and `1.21.80` are not real schema versions — that's why the engine
+  rejects them as "Unexpected version".
+- `minecraft:geometry` in object form (`{"identifier": "..."}`) is
+  the recommended shape; the bare string form is documented as
+  accepted but the engine on this build appears to reject the whole
+  block when both the version is off-milestone and the geometry is a
+  bare string. Object form is what every modern sample uses.
+
+Changes:
+- Block `format_version`: `1.21.40` → `1.21.120` on all 33 blocks
+  (real schema milestone, matches `min_engine_version`).
+- `minecraft:geometry: "minecraft:geometry.full_block"` →
+  `{"identifier": "minecraft:geometry.full_block"}` on all 33 blocks.
+- Removed `behavior_pack/blocks/diag_test.json`. The bare-minimum
+  block (no geometry, no material_instances) was triggering the
+  world-load crash by registering a block the renderer couldn't
+  draw.
 
 ## v1.0.29 — Block format_version bisect
 

@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.40",
+  "format_version": "1.21.120",
   "minecraft:block": {
     "description": {
       "identifier": "lars:dark_stone_rune",
@@ -18,7 +18,9 @@
       "minecraft:map_color": {
         "color": "#2A2A2A"
       },
-      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:geometry": {
+        "identifier": "minecraft:geometry.full_block"
+      },
       "minecraft:material_instances": {
         "*": {
           "texture": "dark_stone_rune",
