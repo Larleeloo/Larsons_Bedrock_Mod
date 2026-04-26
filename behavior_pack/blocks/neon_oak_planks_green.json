@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.40",
+  "format_version": "1.21.120",
   "minecraft:block": {
     "description": {
       "identifier": "lars:neon_oak_planks_green",
@@ -19,7 +19,9 @@
       "minecraft:map_color": {
         "color": "#20FF40"
       },
-      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:geometry": {
+        "identifier": "minecraft:geometry.full_block"
+      },
       "minecraft:material_instances": {
         "*": {
           "texture": "neon_oak_planks_green",
